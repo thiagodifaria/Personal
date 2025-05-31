@@ -8,7 +8,7 @@
 
 ## 📕 Descrição
 
-Personal é um portfólio full-stack moderno e minmalista desenvolvido para apresentar as habilidades, projetos e experiência profissional de Thiago Di Faria. Construído com Next.js 15 e TypeScript, o projeto emprega uma arquitetura baseada em componentes com foco em uma experiência de usuário rica e responsiva. 
+Personal é um portfólio full-stack moderno e minmalista desenvolvido para apresentar as minhas habilidades, projetos e experiência profissional. Construído com Next.js 15 e TypeScript, o projeto emprega uma arquitetura baseada em componentes com foco em uma experiência de usuário rica e responsiva. 
 
 O portfólio se destaca por suas animações fluidas, design responsivo e funcionalidades avançadas como tema dinâmico, formulário de contato com persistência em banco de dados. A aplicação demonstra proficiência em tecnologias modernas e práticas de desenvolvimento contemporâneas.
 
