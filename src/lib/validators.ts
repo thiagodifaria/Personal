@@ -1,12 +1,31 @@
+
 import { z } from "zod";
 
-export const contactFormSchema = z.object({
-  name: z.string().min(2, { message: "O nome deve ter pelo menos 2 caracteres." }).max(50, { message: "O nome não pode exceder 50 caracteres." }),
-  email: z.string().email({ message: "Por favor, insira um email válido." }),
+// Updated TFunction type to match the one from LanguageContext
+type TFunction = (key: string, G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION?: boolean) => string | any;
+
+export const getContactFormSchema = (t: TFunction) => z.object({
+  name: z.string()
+    .min(2, { message: t('zodValidation.nameMin') as string })
+    .max(50, { message: t('zodValidation.nameMax') as string }),
+  email: z.string().email({ message: t('zodValidation.emailInvalid') as string }),
   message: z
     .string()
-    .min(10, { message: "A mensagem deve ter pelo menos 10 caracteres." })
-    .max(1000, { message: "A mensagem não pode exceder 1000 caracteres." }),
+    .min(10, { message: t('zodValidation.messageMin') as string })
+    .max(1000, { message: t('zodValidation.messageMax') as string }),
 });
 
-export type ContactFormValues = z.infer<typeof contactFormSchema>;
+export type ContactFormValues = z.infer<ReturnType<typeof getContactFormSchema>>;
+
+// Server-side schema uses a simpler t function as it doesn't need raw returns and always expects strings.
+const serverT = (key: string): string => {
+  const fallbackMessages: Record<string, string> = {
+    "zodValidation.nameMin": "Name must be at least 2 characters.",
+    "zodValidation.nameMax": "Name cannot exceed 50 characters.",
+    "zodValidation.emailInvalid": "Please enter a valid email.",
+    "zodValidation.messageMin": "Message must be at least 10 characters.",
+    "zodValidation.messageMax": "Message cannot exceed 1000 characters.",
+  };
+  return fallbackMessages[key] || "Invalid input.";
+};
+export const contactFormSchemaServer = getContactFormSchema(serverT);

@@ -14,24 +14,44 @@ import {
 import { siteData } from "@/config/siteData";
 import { NavLink } from "./NavLink";
 import { SocialLinks } from "./SocialLinks";
-// import { useHeaderTheme } from "@/context/HeaderThemeContext"; // May not be needed
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
+import dynamic from 'next/dynamic';
+
+const LanguageSwitcherPlaceholder = ({ className }: { className?: string }) => (
+  <div className={cn("flex items-center gap-0.5 h-auto pointer-events-none", className)} aria-hidden="true">
+    <span className="h-auto py-0 px-0 text-xs leading-none opacity-0">PT</span>
+    <span className="text-[hsl(var(--header-foreground))] opacity-50 text-xs">/</span>
+    <span className="h-auto py-0 px-0 text-xs leading-none opacity-0">EN</span>
+  </div>
+);
+
+const DynamicLanguageSwitcher = dynamic(
+  () => import('@/components/LanguageSwitcher').then(mod => mod.LanguageSwitcher),
+  {
+    ssr: false,
+    loading: ({ className }) => <LanguageSwitcherPlaceholder className={className} />,
+  }
+);
+
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  // const { headerTheme } = useHeaderTheme(); // May not be needed
-
-  // Using CSS variables for colors
-  const iconColorClass = "text-[hsl(var(--header-foreground))] hover:text-[hsl(var(--primary))]";
+  const { t } = useLanguage();
   
-  // Sheet content should follow the main page theme, not necessarily the header's dynamic theme
+  const iconColorClass = "text-[hsl(var(--header-foreground))] hover:text-[hsl(var(--primary))]";
   const sheetBgClass = "bg-background text-foreground";
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className={cn("md:hidden h-8 w-8", iconColorClass)} aria-label="Open navigation menu">
-          <Menu className="h-5 w-5" />
+        <Button 
+            variant="ghost" 
+            size="icon" 
+            className={cn("md:hidden h-7 w-7", iconColorClass)} 
+            aria-label={t('header.openNavigationMenu')}
+        >
+          <Menu className="h-5 w-5" /> 
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className={cn("w-[280px] p-6 flex flex-col", sheetBgClass)}>
@@ -41,21 +61,20 @@ export function MobileMenu() {
           </SheetTitle>
         </SheetHeader>
         <nav className="flex flex-col gap-4 flex-grow">
-          {siteData.navLinks.map((link) => (
+          {siteData.navLinkStructure.map((link) => (
             <NavLink
-              key={link.name}
+              key={link.key}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              // Override NavLink colors for sheet; these should use main page --foreground and --primary
               className="text-base !text-[hsl(var(--foreground))] hover:!text-[hsl(var(--primary))]"
             >
-              {link.name}
+              {t(`siteData.navLinks.${link.key}`)}
             </NavLink>
           ))}
         </nav>
-        <div className="mt-auto border-t border-border pt-6"> {/* Changed mt-8 to mt-auto */}
-          {/* Social links in sheet should use main page foreground/primary */}
+        <div className="mt-auto border-t border-border pt-6 space-y-4">
           <SocialLinks className="justify-start !text-[hsl(var(--foreground))] [&_button]:hover:!text-[hsl(var(--primary))]" />
+          <DynamicLanguageSwitcher /> 
         </div>
       </SheetContent>
     </Sheet>

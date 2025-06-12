@@ -1,3 +1,4 @@
+
 import type { MetadataRoute } from "next";
 import { siteData } from "@/config/siteData";
 
@@ -12,26 +13,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/#intro`,
+      url: `${baseUrl}/sobre`, // Updated from /#intro
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#projects`,
+      url: `${baseUrl}/projetos`, // Updated from /#projects
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/#connect`,
+      url: `${baseUrl}/#connect`, // Remains pointing to homepage section
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.7,
     },
   ] as MetadataRoute.Sitemap;
 
-  const projectRoutes = siteData.projectsData
+  const projectPageLinks = siteData.projectsData
     .filter(project => project.deployedLink) // Only include projects with a deployed link
     .map((project) => ({
       url: project.deployedLink!, // Assert non-null as we filtered
@@ -40,5 +41,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     })) as MetadataRoute.Sitemap;
 
-  return [...mainRoutes, ...projectRoutes];
+  return [...mainRoutes, ...projectPageLinks];
 }

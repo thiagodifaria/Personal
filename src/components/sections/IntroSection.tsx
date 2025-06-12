@@ -1,20 +1,21 @@
+
 "use client";
 
-import { siteData } from "@/config/siteData";
-import { SectionThemeUpdater } from "@/components/SectionThemeUpdater";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function IntroSection() {
+  const { t } = useLanguage();
+  const introTagline = t('siteData.introTagline');
+
   const introVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } },
   };
 
   return (
-    <SectionThemeUpdater
-      theme="dark" // Changed to dark as its background will be light (secondary)
-      className="bg-secondary text-foreground py-12 md:py-20 min-h-screen flex flex-col justify-center items-center"
-      id="intro"
+    <section 
+      className="text-foreground py-12 md:py-20 w-full"
     >
       <div className="container mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8 text-center">
         <motion.p
@@ -24,9 +25,9 @@ export function IntroSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          {siteData.introTagline}
+          {introTagline}
         </motion.p>
       </div>
-    </SectionThemeUpdater>
+    </section>
   );
 }

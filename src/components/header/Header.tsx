@@ -3,12 +3,59 @@
 
 import Link from "next/link";
 import { siteData } from "@/config/siteData";
-import { NavLink } from "./NavLink";
-import { SocialLinks } from "./SocialLinks";
-import { MobileMenu } from "./MobileMenu";
 import { useHeaderTheme } from "@/context/HeaderThemeContext";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import dynamic from 'next/dynamic';
+import { Navigation } from "./Navigation";
+
+// Placeholders for dynamically imported components
+const LanguageSwitcherPlaceholder = ({ className }: { className?: string }) => (
+  <div className={cn("flex items-center gap-0.5 h-auto pointer-events-none", className)} aria-hidden="true">
+    <span className="h-auto py-0 px-0 text-xs leading-none opacity-0">PT</span>
+    <span className="text-[hsl(var(--header-foreground))] opacity-50 text-xs">/</span>
+    <span className="h-auto py-0 px-0 text-xs leading-none opacity-0">EN</span>
+  </div>
+);
+
+const SocialLinksPlaceholder = ({ className }: { className?: string }) => (
+  <div className={cn("flex items-center gap-1 h-7 pointer-events-none", className)} aria-hidden="true">
+    <div className="h-7 w-7 rounded-full bg-transparent"></div>
+    <div className="h-7 w-7 rounded-full bg-transparent"></div>
+    <div className="h-7 w-7 rounded-full bg-transparent"></div>
+  </div>
+);
+
+const MobileMenuPlaceholder = () => (
+  <div className={cn("md:hidden h-7 w-7 bg-transparent pointer-events-none")} aria-hidden="true">
+    <div className="h-5 w-5"></div>
+  </div>
+);
+
+const DynamicLanguageSwitcher = dynamic(
+  () => import('@/components/LanguageSwitcher').then(mod => mod.LanguageSwitcher),
+  {
+    ssr: false,
+    loading: ({ className }) => <LanguageSwitcherPlaceholder className={className} />,
+  }
+);
+
+const DynamicSocialLinks = dynamic(
+  () => import('./SocialLinks').then(mod => mod.SocialLinks),
+  {
+    ssr: false,
+    loading: ({ className }) => <SocialLinksPlaceholder className={className} />,
+  }
+);
+
+const DynamicMobileMenu = dynamic(
+  () => import('./MobileMenu').then(mod => mod.MobileMenu),
+  {
+    ssr: false,
+    loading: () => <MobileMenuPlaceholder />,
+  }
+);
+
 
 export default function Header() {
   const { headerTheme } = useHeaderTheme();
@@ -18,17 +65,16 @@ export default function Header() {
     setMounted(true);
   }, []);
 
-  // Define CSS variables based on the theme for dynamic styling in children
   const headerStyle = mounted ? {
     // @ts-ignore
-    "--header-background": headerTheme === 'dark' ? "hsl(var(--background))" : "hsl(var(--background))", // Use main background for header
-    "--header-foreground": headerTheme === 'dark' ? "hsl(var(--foreground))" : "hsl(var(--foreground))", // Use main foreground
+    "--header-background": headerTheme === 'dark' ? "hsl(var(--background))" : "hsl(var(--background))",
+    "--header-foreground": headerTheme === 'dark' ? "hsl(var(--foreground))" : "hsl(var(--foreground))",
   } : {};
   
   const headerClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ease-in-out",
     "backdrop-blur-md", 
-    "border-b", // Always have a border
+    "border-b",
     mounted && headerTheme === 'dark' ? "bg-[hsl(var(--background))]/80 border-[hsl(var(--border))]/50" : "bg-[hsl(var(--background))]/80 border-[hsl(var(--border))]/50"
   );
   
@@ -36,23 +82,23 @@ export default function Header() {
     ? "text-[hsl(var(--foreground))]" 
     : "text-[hsl(var(--foreground))]";
 
-
   if (!mounted) {
-    // Fallback for SSR to avoid hydration mismatch, using static values that match initial theme intent
     return (
         <header className={cn(
             "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ease-in-out",
-            "backdrop-blur-md bg-background/80 border-b border-border/50" // Matches light theme initially
+            "backdrop-blur-md bg-background/80 border-b border-border/50" 
         )}>
             <div className="container mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8">
-                 <div className={cn("text-xl font-bold font-headline text-foreground")}> {/* Default to foreground */}
+                 <div className={cn("text-xl font-bold font-headline text-foreground")}> 
                     {siteData.personalInfo.initials}
                  </div>
                  <div className="flex items-center gap-4">
+                    <div className="h-8 w-20 rounded bg-muted/20 md:block hidden"></div> 
                     <div className="h-8 w-20 rounded bg-muted/20 md:block hidden"></div>
                     <div className="h-8 w-20 rounded bg-muted/20 md:block hidden"></div>
-                    <div className="h-8 w-20 rounded bg-muted/20 md:block hidden"></div>
-                    <div className="h-8 w-8 rounded-full bg-muted/20 md:hidden"></div>
+                    <SocialLinksPlaceholder className="hidden md:flex"/>
+                    <LanguageSwitcherPlaceholder className="hidden md:flex md:ml-3" />
+                    <MobileMenuPlaceholder />
                  </div>
             </div>
         </header>
@@ -65,16 +111,11 @@ export default function Header() {
         <Link href="/" className={cn("text-xl font-bold font-headline", textColorClass)}>
           {siteData.personalInfo.initials}
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
-          {siteData.navLinks.map((link) => (
-            <NavLink key={link.name} href={link.href}>
-              {link.name}
-            </NavLink>
-          ))}
-        </nav>
-        <div className="flex items-center gap-3">
-          <SocialLinks className="hidden md:flex" />
-          <MobileMenu />
+        <Navigation /> 
+        <div className="flex items-center gap-1 md:gap-2">
+          <DynamicSocialLinks className="hidden md:flex" />
+          <DynamicLanguageSwitcher className="hidden md:flex md:ml-3" /> 
+          <DynamicMobileMenu />
         </div>
       </div>
     </header>

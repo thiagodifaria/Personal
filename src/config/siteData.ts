@@ -5,35 +5,39 @@ import {
   Linkedin,
   Mail,
   FileText,
-  Code2,
-  Layers,
-  Palette,
-  Server,
-  FileCode,
-  Coffee,
-  Instagram,
+  Layers, 
+  Palette, 
+  Coffee, 
+  Instagram, 
+  Terminal, 
+  Network,
+  Code, // Adicionado Code, TypeSquare foi removido
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-export type Project = {
-  title: string;
-  description: string;
-  img: StaticImageData | string;
+// This type might need adjustment if titles/descriptions are fully managed by i18n keys
+export type ProjectStructure = {
+  id: string; // Used as a key for translations
+  img: StaticImageData | string; // Image path remains static
   github?: string;
   deployedLink?: string;
-  technologies: string[];
+  technologies: string[]; // Tech names are usually not translated or consistently named
   dataAiHint?: string;
 };
 
-export type SocialMediaHandle = {
-  name:string;
+export type SocialMediaHandleStructure = {
+  nameKey: string; // Key for tooltip translation, and for general identification
   url: string;
   icon: LucideIcon;
-  tooltip?: string;
+};
+
+export type NavLinkStructure = {
+  key: string; // Key for name translation
+  href: string;
 };
 
 export type OrbitingTech = {
-  name: string;
+  name: string; // Tech names are usually not translated
   icon: LucideIcon;
   radius: number;
   duration?: number;
@@ -41,69 +45,84 @@ export type OrbitingTech = {
   delay?: number;
 };
 
+// siteData now holds structure and non-translatable parts.
+// Translatable strings (titles, descriptions, names) will be fetched using i18n.
 export const siteData = {
   personalInfo: {
     name: "Thiago Di Faria", 
     initials: "TF", 
-    email: "seuemail@example.com", 
+    email: "thiagodifaria@gmail.com", 
     resumeUrl: "https://example.com/seu-curriculo.pdf", 
   },
-  heroWords: [
-    "Desenvolvedor Front-End", 
-    "Especialista em Python", 
-    "Projetos Back-End Escaláveis", 
-    "Designer UI/UX"
-  ],
-  heroSubtitle: "Desenvolvedor apaixonado por criar aplicações e website únicos, inovadores e eficientes.",
-  introTagline: "Eu crio experiências web intuitivas e responsivas que combinam design estético com elegância funcional.",
+  // heroWords, heroSubtitle, introTagline moved to locale files
   socialMedia: [
-    { name: "Github", url: "https://github.com/thiagodifaria", icon: Github, tooltip: "GitHub" },
-    { name: "Instagram", url: "https://www.instagram.com/thiagodifaria/?hl=en", icon: Instagram, tooltip: "Instagram" },
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/thiago-di-faria-34304a34b/", icon: Linkedin, tooltip: "LinkedIn" },
-    { name: "Email", url: "mailto:thiagodifaria@gmail.com", icon: Mail, tooltip: "Email" },
-    { name: "Resume", url: "https://example.com/meu-curriculo.pdf", icon: FileText, tooltip: "Currículo" },
-  ] as SocialMediaHandle[],
+    { nameKey: "Github", url: "https://github.com/thiagodifaria", icon: Github },
+    { nameKey: "Instagram", url: "https://www.instagram.com/thiagodifaria/?hl=en", icon: Instagram },
+    { nameKey: "LinkedIn", url: "https://www.linkedin.com/in/thiago-di-faria-34304a34b/", icon: Linkedin },
+    { nameKey: "Email", url: "mailto:thiagodifaria@gmail.com", icon: Mail },
+    { nameKey: "Resume", url: "https://example.com/seu-curriculo.pdf", icon: FileText }, 
+  ] as SocialMediaHandleStructure[],
   orbitingTechIcons: [
-    { name: "React", icon: Layers, radius: 70, duration: 25, reverse: false, delay: 0 },
-    { name: "TypeScript", icon: FileCode, radius: 70, duration: 25, reverse: true, delay: 8 },
-    { name: "TailwindCSS", icon: Palette, radius: 70, duration: 25, reverse: false, delay: 16 },
-    
-    { name: "Python", icon: Code2, radius: 110, duration: 35, reverse: true, delay: 0 },
-    { name: "Java", icon: Coffee, radius: 110, duration: 35, reverse: false, delay: 12 },
-    { name: "NextJS", icon: Server, radius: 110, duration: 35, reverse: true, delay: 24 },
+    { name: "React", icon: Layers, radius: 80, duration: 28, reverse: false, delay: 0 },
+    { name: "TypeScript", icon: Code, radius: 80, duration: 28, reverse: true, delay: 9 }, // Alterado TypeSquare para Code
+    { name: "TailwindCSS", icon: Palette, radius: 80, duration: 28, reverse: false, delay: 18 },
+    { name: "Python", icon: Terminal, radius: 120, duration: 38, reverse: true, delay: 0 },
+    { name: "Java", icon: Coffee, radius: 120, duration: 38, reverse: false, delay: 12 },
+    { name: "NextJS", icon: Network, radius: 120, duration: 38, reverse: true, delay: 24 },
   ] as OrbitingTech[],
-  projectsData: [
+  projectsDataStructure: [
     {
-      title: "Tesori di Bacco",
-      description: "Aplicação web sofisticada concebida como uma plataforma exclusiva para um clube de vinhos premium inspirado na tradição italiana. Este projeto foi desenvolvido utilizando tecnologias modernas para proporcionar aos usuários uma experiência digital rica e elegante, centrada na descoberta e apreciação de vinhos selecionados.",
+      id: "tesoriDiBacco",
       img: "/images/tesoridibacco.png",
-      dataAiHint: "wine club luxury",
+      dataAiHint: "Clube de Vinhos",
       github: "https://github.com/thiagodifaria/Tesori-di-Bacco",
       deployedLink: "https://tesoridibacco.netlify.app/",
       technologies: ["React", "TypeScript", "Tailwind CSS"]
     },
     {
-      title: "LexiconCLI",
-      description: "Sistema de análise financeira abrangente e interativo, permitindo monitoramento de mercados, análises técnicas, com poderosas ferramentas para monitoramento de mercados em tempo real, execução de análises técnicas aprofundadas e obtenção de previsões de séries temporais baseadas em modelos de Machine Learning.",
+      id: "lexiconCLI",
       img: "/images/lexiconcli.png",
-      dataAiHint: "finance stock market",
+      dataAiHint: "App de Financia",
       github: "https://github.com/thiagodifaria/LexiconCLI", 
       deployedLink: undefined,
       technologies: ["Python"]
     },
     {
-      title: "MoodAPI",
-      description: "API para análise de sentimentos em textos utilizando técnicas de Processamento de Linguagem Natural (NLP). Este projeto oferece uma solução completa para classificação emocional de textos, incluindo análise de sentimentos básica e detalhada, extração de entidades, e armazenamento de histórico.",
+      id: "moodAPI",
       img: "https://placehold.co/600x375.png",
-      dataAiHint: "nlp sentiment analysis",
+      dataAiHint: "NLP Analista de Sentimentos",
       github: "https://github.com/thiagodifaria/MoodAPI", 
       deployedLink: undefined,
       technologies: ["Python"]
+    },
+    {
+      id: "ecommerceInovador",
+      img: "https://placehold.co/600x375.png",
+      dataAiHint: "ecommerce platform modern",
+      github: "https://github.com/Thgdi/placeholder-ecommerce",
+      deployedLink: undefined,
+      technologies: ["NextJS", "TypeScript", "Tailwind CSS", "GraphQL"]
+    },
+    {
+      id: "gerenciamentoTarefas",
+      img: "https://placehold.co/600x375.png",
+      dataAiHint: "task manager app",
+      github: "https://github.com/Thgdi/placeholder-task-app",
+      deployedLink: undefined,
+      technologies: ["React Native", "Firebase", "TypeScript"]
+    },
+    {
+      id: "analiseDados",
+      img: "https://placehold.co/600x375.png",
+      dataAiHint: "data dashboard analytics",
+      github: "https://github.com/Thgdi/placeholder-dashboard",
+      deployedLink: undefined,
+      technologies: ["Python", "Dash", "Plotly", "Pandas"]
     }
-  ] as Project[],
-  navLinks: [
-    { name: "Sobre", href: "#intro" },
-    { name: "Projetos", href: "#projects" },
-    { name: "Contato", href: "#connect" },
-  ],
+  ] as ProjectStructure[],
+  navLinkStructure: [
+    { key: "sobre", href: "/sobre" },
+    { key: "projetos", href: "/projetos" },
+    { key: "contato", href: "/#connect" },
+  ] as NavLinkStructure[],
 };

@@ -1,5 +1,7 @@
+
 import type { Metadata } from "next";
-import { siteData } from "@/config/siteData";
+// Default metadata, not using translations for simplicity after removing next-international server helpers.
+// You could import ptTranslations directly here if you want to source defaults from it.
 
 type Props = {
   title?: string;
@@ -10,10 +12,10 @@ type Props = {
 };
 
 export function constructMetadata({
-  title = siteData.personalInfo.name + " - Portfolio",
-  description = siteData.introTagline,
-  image = `${process.env.NEXT_PUBLIC_APP_URL}/og-image.png`, // Default OG image
-  icons = "/favicon.ico",
+  title = "Thiago Di Faria - Portfólio", // Default title in Portuguese
+  description = "Portfólio de Thiago Di Faria, desenvolvedor de software.", // Default description in Portuguese
+  image = `${process.env.NEXT_PUBLIC_APP_URL}/og-image.png`, // Ensure you have this image
+  icons = "/favicon.ico", // Ensure you have this favicon
   noIndex = false,
 }: Props = {}): Metadata {
   return {
@@ -33,7 +35,7 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: "@" + siteData.socialMedia.find(s => s.name.toLowerCase() === "twitter")?.url.split("/").pop(), // Example, assumes twitter handle in URL
+      // creator: "@yourTwitterHandle", // Update if you have one
     },
     icons,
     metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),

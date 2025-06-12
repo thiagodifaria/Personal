@@ -13,15 +13,19 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function HeroSection() {
-  const { personalInfo, heroWords, socialMedia, orbitingTechIcons } = siteData;
+  const { t } = useLanguage();
+  const { personalInfo, orbitingTechIcons, socialMedia } = siteData;
+
+  const heroWords = t('siteData.heroWords', true) as string[]; // Use special flag for array
+  const heroSubtitle = t('siteData.heroSubtitle');
 
   return (
     <SectionThemeUpdater theme="light" className="bg-background text-foreground" id="hero">
       <div className="container mx-auto min-h-screen max-w-screen-xl px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-16 md:py-20">
-          {/* Text Content - Appears first on mobile, Left Column on desktop */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-headline tracking-tight mb-2">
               {personalInfo.name}
@@ -40,24 +44,23 @@ export function HeroSection() {
               <FlipWords words={heroWords} className="text-primary" />
             </div>
             
-            <p className="text-base text-muted-foreground mt-2 mb-8 max-w-md"> {/* Reduced top margin, kept bottom margin for social icons */}
-              {siteData.heroSubtitle}
+            <p className="text-base text-muted-foreground mt-2 mb-8 max-w-md">
+              {heroSubtitle}
             </p>
 
-            {/* Social Icons - Styled to be smaller and simpler, appears below text on mobile */}
             <div className="flex justify-center md:justify-start space-x-2">
               <TooltipProvider delayDuration={100}>
                 {socialMedia.map((social) => (
-                  <Tooltip key={social.name}>
+                  <Tooltip key={social.nameKey}>
                     <TooltipTrigger asChild>
                       <Button variant="ghost" size="icon" asChild className="text-muted-foreground hover:text-primary h-9 w-9 rounded-full">
-                        <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+                        <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={t(`siteData.socialMediaTooltips.${social.nameKey}`) || social.nameKey}>
                           <social.icon className="h-5 w-5" />
                         </a>
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent side="bottom">
-                      <p>{social.tooltip || social.name}</p>
+                      <p>{t(`siteData.socialMediaTooltips.${social.nameKey}`) || social.nameKey}</p>
                     </TooltipContent>
                   </Tooltip>
                 ))}
@@ -65,15 +68,12 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Orbiting Circles Animation - Appears last on mobile, Right Column on desktop */}
-          {/* Increased height for mobile (h-[350px]), added mt-12 for mobile spacing */}
           <div className="relative flex items-center justify-center w-full h-[350px] md:h-[240px] lg:h-[280px] mt-12 md:mt-0">
             <OrbitingCircles
               className="h-full w-full border-none"
               items={orbitingTechIcons}
               path={true} 
             >
-              {/* No central image */}
             </OrbitingCircles>
           </div>
         </div>

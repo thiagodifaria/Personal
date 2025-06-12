@@ -2,30 +2,35 @@
 "use client";
 
 import Image from "next/image";
-import type { Project } from "@/config/siteData";
+import type { ProjectStructure } from "@/config/siteData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BlurFade } from "@/components/ui/BlurFade";
 import { Github, Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ProjectCardProps {
-  project: Project;
+  project: ProjectStructure;
   index: number;
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const { t } = useLanguage();
+  const projectTitle = t(`siteData.projects.${project.id}.title`);
+  const projectDescription = t(`siteData.projects.${project.id}.description`);
+
   return (
-    <BlurFade delay={index * 0.15} inView={true}>
+    <BlurFade delay={index * 0.15} viewportAmount={0.1}>
       <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-lg border-border/70">
         <CardHeader className="p-0">
           <div className="aspect-[16/10] overflow-hidden">
             <Image
               src={project.img}
-              alt={project.title}
+              alt={projectTitle}
               width={600}
-              height={375} // Adjusted for 16/10 aspect ratio if image size is 600px wide
+              height={375}
               className={cn(
                 "object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105",
                 typeof project.img === 'string' && project.img.startsWith('https://placehold.co') ? 'grayscale hover:grayscale-0' : ''
@@ -37,9 +42,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         </CardHeader>
         <CardContent className="flex-grow p-4">
-          <CardTitle className="font-headline text-lg mb-1.5">{project.title}</CardTitle>
+          <CardTitle className="font-headline text-lg mb-1.5">{projectTitle}</CardTitle>
           <CardDescription className="text-muted-foreground mb-3 text-xs leading-relaxed">
-            {project.description}
+            {projectDescription}
           </CardDescription>
           <div className="flex flex-wrap gap-1.5 mb-3">
             {project.technologies.map((tech) => (
@@ -54,14 +59,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             {project.github && (
               <Button variant="outline" size="sm" asChild className="text-xs">
                 <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-1.5 h-3.5 w-3.5" /> Código
+                  <Github className="mr-1.5 h-3.5 w-3.5" /> {t('projectCard.codeButton')}
                 </a>
               </Button>
             )}
             {project.deployedLink && (
               <Button variant="default" size="sm" asChild className="text-xs">
                 <a href={project.deployedLink} target="_blank" rel="noopener noreferrer">
-                  <Globe className="mr-1.5 h-3.5 w-3.5" /> Ver Site
+                  <Globe className="mr-1.5 h-3.5 w-3.5" /> {t('projectCard.siteButton')}
                 </a>
               </Button>
             )}

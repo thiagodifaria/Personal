@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -16,14 +17,18 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { SectionThemeUpdater } from "@/components/SectionThemeUpdater";
 import type { ContactFormValues} from "@/lib/validators";
-import { contactFormSchema } from "@/lib/validators";
+import { getContactFormSchema } from "@/lib/validators";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function ConnectSection() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+
+  const contactFormSchema = getContactFormSchema(t);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -47,18 +52,18 @@ export function ConnectSection() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Falha ao enviar mensagem.");
+        throw new Error(errorData.message || t('contactForm.errorDescriptionDefault'));
       }
 
       toast({
-        title: "Mensagem Enviada!",
-        description: "Obrigado pelo seu contato. Retornarei em breve.",
+        title: t('contactForm.successTitle'),
+        description: t('contactForm.successDescription'),
       });
       form.reset();
     } catch (error: any) {
       toast({
-        title: "Erro ao Enviar",
-        description: error.message || "Ocorreu um problema. Tente novamente.",
+        title: t('contactForm.errorTitle'),
+        description: error.message || t('contactForm.errorDescriptionDefault'),
         variant: "destructive",
       });
     } finally {
@@ -68,20 +73,20 @@ export function ConnectSection() {
 
   return (
     <SectionThemeUpdater 
-      theme="dark" // Changed to dark as its background will be light (secondary)
+      theme="dark" 
       className="bg-secondary text-foreground py-12 md:py-20 min-h-screen flex flex-col justify-center" 
       id="connect"
     >
       <div className="container mx-auto max-w-screen-md px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold font-headline mb-3">
-            Entre em Contato
+            {t('homePage.connectSectionTitle')}
           </h2>
           <p className="text-base text-muted-foreground">
-            Tem alguma pergunta, proposta ou apenas quer dizer olá? Preencha o formulário abaixo.
+            {t('homePage.connectSectionDescription')}
           </p>
         </div>
-        <Card className="shadow-lg border-border/70 bg-card text-card-foreground"> {/* Ensure card respects its theme variables */}
+        <Card className="shadow-lg border-border/70 bg-card text-card-foreground">
           <CardContent className="p-4 sm:p-6">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -90,9 +95,9 @@ export function ConnectSection() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm">Nome</FormLabel>
+                      <FormLabel className="text-sm">{t('contactForm.nameLabel')}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Seu nome completo" {...field} />
+                        <Input placeholder={t('contactForm.namePlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -103,9 +108,9 @@ export function ConnectSection() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm">Email</FormLabel>
+                      <FormLabel className="text-sm">{t('contactForm.emailLabel')}</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="seu@email.com" {...field} />
+                        <Input type="email" placeholder={t('contactForm.emailPlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -116,10 +121,10 @@ export function ConnectSection() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm">Mensagem</FormLabel>
+                      <FormLabel className="text-sm">{t('contactForm.messageLabel')}</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Sua mensagem..."
+                          placeholder={t('contactForm.messagePlaceholder')}
                           className="min-h-[100px]"
                           {...field}
                         />
@@ -132,10 +137,10 @@ export function ConnectSection() {
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Enviando...
+                      {t('contactForm.submitButtonLoading')}
                     </>
                   ) : (
-                    "Enviar Mensagem"
+                    t('contactForm.submitButton')
                   )}
                 </Button>
               </form>
