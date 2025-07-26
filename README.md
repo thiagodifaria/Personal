@@ -1,8 +1,8 @@
 # Thiago Di Faria
 
-![Developer Portfolio](https://img.shields.io/badge/Portfolio-Backend%20Python%20Specialist-6366f1?style=for-the-badge&logo=python)
+![Developer Portfolio](https://img.shields.io/badge/Portfolio-Full%20Stack%20Developer-6366f1?style=for-the-badge&logo=developer)
 
-**Full-Stack Developer | Full-Stack Capabilities | Clean Architecture Advocate**
+**Full-Stack Developer | Backend Developer Specialist in Python | Clean Architecture Advocate**
 
 [![Python](https://img.shields.io/badge/Python-Specialist-3776ab?style=flat&logo=python&logoColor=white)](https://python.org)
 [![Next.js](https://img.shields.io/badge/Next.js-Full%20Stack-000000?style=flat&logo=nextdotjs&logoColor=white)](https://nextjs.org)
