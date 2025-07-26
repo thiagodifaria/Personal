@@ -23,12 +23,12 @@ export default function ProjetosPage() {
       as="main"
       className="flex flex-col min-h-screen bg-background" 
     >
-      <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 flex-grow">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold font-headline mb-4">
+      <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex-grow">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">
             {t('projectsPage.title')}
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             {t('projectsPage.description')}
           </p>
         </div>

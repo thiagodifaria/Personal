@@ -7,7 +7,10 @@ const ptTranslations = {
       "Desenvolvedor Front-End",
       "Especialista em Python",
       "Projetos Back-End Escaláveis",
-      "Designer UI/UX"
+      "Designer UI/UX",
+      "Análise e Visualização de Dados",
+      "Código Limpo e Manutenível",
+      "Interfaces Intuitivas e Funcionais"
     ],
     heroSubtitle: "Desenvolvedor apaixonado por criar aplicações e website únicos, inovadores e eficientes.",
     introTagline: "Eu crio experiências web intuitivas e responsivas que combinam design estético com elegância funcional.",
@@ -24,29 +27,29 @@ const ptTranslations = {
       Resume: "Currículo",
     },
     projects: {
+      begriff: {
+        title: "Begriff",
+        description: "Uma plataforma empresarial completa de inteligência financeira, cuja missão é demonstrar a modernização de sistemas legados através de uma arquitetura híbrida inteligente. O projeto une COBOL, C++ e Python para criar uma sinfonia tecnológica de alta performance, seguindo os princípios de Clean Architecture e Domain-Driven Design (DDD) para garantir modularidade, escalabilidade e manutenibilidade empresarial."
+      },
+      codex: {
+        title: "Codex",
+        description: "Uma aplicação web de produtividade pessoal projetada para auxiliar no gerenciamento integrado de atividades como diário pessoal, listas de tarefas, projetos e metas de longo prazo. Construído com tecnologias modernas e foco na experiência do usuário."
+      },
       tesoriDiBacco: {
         title: "Tesori di Bacco",
-        description: "Aplicação web sofisticada concebida como uma plataforma exclusiva para um clube de vinhos premium inspirado na tradição italiana. Este projeto foi desenvolvido utilizando tecnologias modernas para proporcionar aos usuários uma experiência digital rica e elegante, centrada na descoberta e apreciação de vinhos selecionados.",
+        description: "Uma aplicação web front-end sofisticada concebida como uma plataforma exclusiva para um clube de vinhos premium inspirado na tradição italiana. Este projeto foi meticulosamente desenvolvido utilizando tecnologias modernas para proporcionar aos usuários uma experiência digital rica e elegante, centrada na descoberta e apreciação de vinhos selecionados."
       },
       lexiconCLI: {
         title: "LexiconCLI",
-        description: "Sistema de análise financeira abrangente e interativo, permitindo monitoramento de mercados, análises técnicas, com poderosas ferramentas para monitoramento de mercados em tempo real, execução de análises técnicas aprofundadas e obtenção de previsões de séries temporais baseadas em modelos de Machine Learning.",
+        description: "Um sistema de análise financeira interativo e de última geração, meticulosamente desenvolvido em Python para operar diretamente no ambiente de terminal. Este projeto foi concebido para capacitar traders, investidores, analistas quantitativos e entusiastas do mercado financeiro com ferramentas avançadas para monitoramento de mercados, previsões probabilísticas e quantificação de incerteza."
       },
       moodAPI: { 
         title: "MoodAPI", 
-        description: "API para análise de sentimentos em textos utilizando técnicas de Processamento de Linguagem Natural (NLP). Este projeto oferece uma solução completa para classificação emocional de textos, incluindo análise de sentimentos básica e detalhada, extração de entidades, e armazenamento de histórico." 
+        description: "API para análise de sentimentos em textos utilizando técnicas de Processamento de Linguagem Natural (NLP) e modelos Transformer de última geração. Este projeto oferece uma solução completa para classificação emocional de textos, incluindo análise multilíngue de sentimentos básicos e detalhados de forma robusta com alta precisão, sistema de cache inteligente, analytics avançados, extração de entidades, e armazenamento de histórico."
       },
-      ecommerceInovador: { 
-        title: "Projeto E-commerce Inovador", 
-        description: "Plataforma de e-commerce completa com foco em experiência do usuário e otimização de conversão, utilizando as últimas tendências de design e tecnologia." 
-      },
-      gerenciamentoTarefas: { 
-        title: "Aplicativo de Gerenciamento de Tarefas", 
-        description: "Um aplicativo intuitivo para gerenciamento de tarefas e projetos pessoais, com sincronização em tempo real e design minimalista." 
-      },
-      analiseDados: { 
-        title: "Painel de Análise de Dados", 
-        description: "Dashboard interativo para visualização e análise de grandes volumes de dados, com gráficos customizáveis e relatórios em tempo real." 
+      caninana: {
+        title: "Caninana",
+        description: "Um projeto educacional que implementa os conceitos fundamentais de um engine antivírus moderno, incluindo análise de arquivos, detecção por assinaturas, quarentena e atualizações automáticas. O projeto implementa uma arquitetura robusta que demonstra os princípios fundamentais de segurança cibernética e desenvolvimento de sistemas."
       },
     },
   },
@@ -122,6 +125,7 @@ const ptTranslations = {
   projectCard: {
     codeButton: "Código",
     siteButton: "Ver Site",
+    inDevelopment: "Em Desenvolvimento",
   },
   zodValidation: {
     nameMin: "O nome deve ter pelo menos 2 caracteres.",

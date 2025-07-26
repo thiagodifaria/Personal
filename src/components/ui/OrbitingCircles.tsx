@@ -2,10 +2,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { LucideIcon } from "lucide-react";
 
 interface OrbitingItem {
-  icon: LucideIcon;
+  icon: string; // Changed to string for SVG path
   name: string;
   radius: number;
   duration?: number;
@@ -23,7 +22,7 @@ interface OrbitingCirclesProps {
   radius?: number; 
   path?: boolean; 
   items: OrbitingItem[];
-  mainIcon?: LucideIcon; 
+  mainIcon?: React.ElementType; // Changed to React.ElementType to allow for custom main icon if needed
 }
 
 export function OrbitingCircles({
@@ -90,7 +89,7 @@ export function OrbitingCircles({
             title={item.name}
           >
             <div className="flex h-6 w-6 items-center justify-center rounded-full"> 
-              <item.icon className="h-4 w-4 text-foreground opacity-60 hover:opacity-100 transition-opacity" /> 
+              <img src={item.icon} alt={item.name} className="h-4 w-4 object-contain opacity-60 hover:opacity-100 transition-opacity" /> 
             </div>
           </div>
         );

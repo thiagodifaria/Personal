@@ -7,7 +7,10 @@ const enTranslations = {
       "Front-End Developer",
       "Python Specialist",
       "Scalable Back-End Projects",
-      "UI/UX Designer"
+      "UI/UX Designer",
+      "Data Analysis and Visualization",
+      "Clean and Maintainable Code",
+      "Intuitive and Functional Interfaces"
     ],
     heroSubtitle: "Passionate developer creating unique, innovative, and efficient applications and websites.",
     introTagline: "I craft intuitive and responsive web experiences that blend aesthetic design with functional elegance.",
@@ -24,29 +27,29 @@ const enTranslations = {
       Resume: "Resume",
     },
     projects: {
+      begriff: {
+        title: "Begriff",
+        description: "A complete enterprise financial intelligence platform, designed to modernize legacy systems through a smart hybrid architecture. The project combines COBOL, C++, and Python to create a high-performance technological symphony, following the principles of Clean Architecture and Domain-Driven Design (DDD) to ensure modularity, scalability, and enterprise maintainability."
+      },
+      codex: {
+        title: "Codex",
+        description: "A personal productivity web application designed to help with the integrated management of activities such as a personal diary, to-do lists, projects, and long-term goals. Built with modern technologies and a focus on user experience."
+      },
       tesoriDiBacco: {
         title: "Tesori di Bacco",
-        description: "A sophisticated web application designed as an exclusive platform for a premium wine club inspired by Italian tradition. This project was developed using modern technologies to provide users with a rich and elegant digital experience, centered on the discovery and appreciation of selected wines.",
+        description: "A sophisticated front-end web application designed as an exclusive platform for a premium wine club inspired by Italian tradition. This project was meticulously developed using modern technologies to provide users with a rich and elegant digital experience, centered on the discovery and appreciation of selected wines."
       },
       lexiconCLI: {
         title: "LexiconCLI",
-        description: "A comprehensive and interactive financial analysis system, allowing market monitoring, technical analysis, with powerful tools for real-time market monitoring, in-depth technical analysis execution, and obtaining time series forecasts based on Machine Learning models.",
+        description: "An interactive and state-of-the-art financial analysis system, meticulously developed in Python to operate directly in the terminal environment. This project is designed to empower traders, investors, quantitative analysts, and financial market enthusiasts with advanced tools for market monitoring, probabilistic forecasting, and uncertainty quantification."
       },
       moodAPI: {
         title: "MoodAPI",
-        description: "API for sentiment analysis in texts using Natural Language Processing (NLP) techniques. This project offers a complete solution for emotional classification of texts, including basic and detailed sentiment analysis, entity extraction, and history storage."
+        description: "API for sentiment analysis in texts using Natural Language Processing (NLP) techniques and state-of-the-art Transformer models. This project offers a complete solution for emotional classification of texts, including robust multilingual analysis of basic and detailed sentiments with high precision, a smart cache system, advanced analytics, entity extraction, and history storage."
       },
-      ecommerceInovador: {
-        title: "Innovative E-commerce Project",
-        description: "A complete e-commerce platform focused on user experience and conversion optimization, using the latest design and technology trends."
-      },
-      gerenciamentoTarefas: {
-        title: "Task Management Application",
-        description: "An intuitive application for managing personal tasks and projects, with real-time synchronization and minimalist design."
-      },
-      analiseDados: {
-        title: "Data Analysis Dashboard",
-        description: "An interactive dashboard for visualizing and analyzing large volumes of data, with customizable charts and real-time reports."
+      caninana: {
+        title: "Caninana",
+        description: "An educational project that implements the fundamental concepts of a modern antivirus engine, including file analysis, signature detection, quarantine, and automatic updates. The project implements a robust architecture that demonstrates the fundamental principles of cybersecurity and systems development."
       },
     },
   },
@@ -122,6 +125,7 @@ const enTranslations = {
   projectCard: {
     codeButton: "Code",
     siteButton: "View Site",
+    inDevelopment: "In Development",
   },
   zodValidation: {
     nameMin: "Name must be at least 2 characters long.",

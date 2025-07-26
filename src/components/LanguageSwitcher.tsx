@@ -13,7 +13,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         variant="ghost"
         size="sm"
         className={cn(
-          "h-auto py-0 px-0 text-xs leading-none", // Drasticamente menor
+          "h-auto py-0 px-1 text-[11px] leading-none",
           language === 'pt'
             ? 'text-[hsl(var(--primary))] opacity-100 font-semibold'
             : 'text-[hsl(var(--header-foreground))] opacity-60 font-normal hover:opacity-90 hover:text-[hsl(var(--primary))]'
@@ -29,7 +29,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         variant="ghost"
         size="sm"
         className={cn(
-           "h-auto py-0 px-0 text-xs leading-none", // Drasticamente menor
+           "h-auto py-0 px-1 text-[11px] leading-none",
            language === 'en'
             ? 'text-[hsl(var(--primary))] opacity-100 font-semibold'
             : 'text-[hsl(var(--header-foreground))] opacity-60 font-normal hover:opacity-90 hover:text-[hsl(var(--primary))]'

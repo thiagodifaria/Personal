@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BlurFade } from "@/components/ui/BlurFade";
-import { Github, Globe } from "lucide-react";
+import { Github, Globe, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -25,7 +25,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     <BlurFade delay={index * 0.15} viewportAmount={0.1}>
       <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-lg border-border/70">
         <CardHeader className="p-0">
-          <div className="aspect-[16/10] overflow-hidden">
+          <div className="aspect-[16/10] overflow-hidden relative">
             <Image
               src={project.img}
               alt={projectTitle}
@@ -39,6 +39,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               blurDataURL={typeof project.img === 'string' ? undefined : (project.img as any).blurDataURL}
               data-ai-hint={project.dataAiHint || "project showcase"}
             />
+            {project.inDevelopment && (
+              <div className="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-md">{t('projectCard.inDevelopment')}</div>
+            )}
           </div>
         </CardHeader>
         <CardContent className="flex-grow p-4">
@@ -55,18 +58,25 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         </CardContent>
         <CardFooter className="p-4 pt-0 border-t border-border/70">
-          <div className="flex w-full justify-end gap-2.5">
+          <div className="flex w-full justify-end gap-2">
             {project.github && (
-              <Button variant="outline" size="sm" asChild className="text-xs">
+              <Button variant="outline" size="xs" asChild className="text-xs">
                 <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-1.5 h-3.5 w-3.5" /> {t('projectCard.codeButton')}
+                  <Github className="mr-1.5 h-3 w-3" /> {t('projectCard.codeButton')}
                 </a>
               </Button>
             )}
             {project.deployedLink && (
-              <Button variant="default" size="sm" asChild className="text-xs">
+              <Button variant="default" size="xs" asChild className="text-xs">
                 <a href={project.deployedLink} target="_blank" rel="noopener noreferrer">
-                  <Globe className="mr-1.5 h-3.5 w-3.5" /> {t('projectCard.siteButton')}
+                  <Globe className="mr-1.5 h-3 w-3" /> {t('projectCard.siteButton')}
+                </a>
+              </Button>
+            )}
+            {project.executableUrl && (
+              <Button variant="default" size="xs" asChild className="text-xs">
+                <a href={project.executableUrl} target="_blank" rel="noopener noreferrer">
+                  <Download className="mr-1.5 h-3 w-3" /> Download
                 </a>
               </Button>
             )}
