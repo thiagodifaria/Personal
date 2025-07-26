@@ -49,7 +49,7 @@ export type OrbitingTech = {
     name: "Thiago Di Faria",
     initials: "TF",
     email: "thiagodifaria@gmail.com",
-    resumeUrl: "https://example.com/seu-curriculo.pdf"
+    resumeUrl: "/curriculo.pdf"
   },
   // heroWords, heroSubtitle, introTagline moved to locale files
   socialMedia: [
@@ -57,7 +57,7 @@ export type OrbitingTech = {
     { nameKey: "Instagram", url: "https://www.instagram.com/thiagodifaria/?hl=en", icon: Instagram },
     { nameKey: "LinkedIn", url: "https://www.linkedin.com/in/thiago-di-faria-34304a34b/", icon: Linkedin },
     { nameKey: "Email", url: "mailto:thiagodifaria@gmail.com", icon: Mail },
-    { nameKey: "Resume", url: "https://example.com/seu-curriculo.pdf", icon: FileText }, 
+    { nameKey: "Resume", url: "/curriculo.pdf", icon: FileText }, 
   ] as SocialMediaHandleStructure[],
   orbitingTechIcons: [
     // Inner orbit (radius: 60)

@@ -54,7 +54,7 @@ export function HeroSection() {
                   <Tooltip key={social.nameKey}>
                     <TooltipTrigger asChild>
                       <Button variant="ghost" size="icon" asChild className="text-muted-foreground hover:text-primary h-9 w-9 rounded-full">
-                        <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={t(`siteData.socialMediaTooltips.${social.nameKey}`) || social.nameKey}>
+                        <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={t(`siteData.socialMediaTooltips.${social.nameKey}`) || social.nameKey} download={social.nameKey === "Resume" ? "curriculo.pdf" : undefined}>
                           <social.icon className="h-5 w-5" />
                         </a>
                       </Button>
