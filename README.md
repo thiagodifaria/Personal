@@ -2,7 +2,7 @@
 
 ![Developer Portfolio](https://img.shields.io/badge/Portfolio-Backend%20Python%20Specialist-6366f1?style=for-the-badge&logo=python)
 
-**Backend Developer Specialist | Full-Stack Capabilities | Clean Architecture Advocate**
+**Full-Stack Developer | Full-Stack Capabilities | Clean Architecture Advocate**
 
 [![Python](https://img.shields.io/badge/Python-Specialist-3776ab?style=flat&logo=python&logoColor=white)](https://python.org)
 [![Next.js](https://img.shields.io/badge/Next.js-Full%20Stack-000000?style=flat&logo=nextdotjs&logoColor=white)](https://nextjs.org)
