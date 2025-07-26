@@ -170,9 +170,8 @@ Strong connection with **Italian culture**, reflected in the Tesori di Bacco pro
 - **🏎️ Formula 1**: Admirer of Sebastian Vettel and Ayrton Senna
 
 ### **🎵 Eclectic Musical Taste**
-**Rap**: Kanye West | **Sertanejo**: Henrique & Juliano 
-**Funk**: WS da Igrejinha |**Electronic**: Duke Dumont
-**Rock**: Deftones
+**Rap**: Kanye West | **Sertanejo**: Henrique & Juliano | **Brazilian Funk**: WS da Igrejinha | **Electronic**: Duke Dumont
+| **Rock**: Deftones
 
 ---
 
