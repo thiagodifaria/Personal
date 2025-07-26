@@ -170,9 +170,8 @@ Forte conexão com a **cultura italiana**, refletida no projeto Tesori di Bacco.
 - **🏎️ Fórmula 1**: Admirador de Sebastian Vettel e Ayrton Senna
 
 ### **🎵 Gosto Musical Eclético**
-**Rap**: Kanye West | **Sertanejo**: Henrique & Juliano 
-**Funk**: WS da Igrejinha |**Electronic**: Duke Dumont
-**Rock**: Deftones
+**Rap**: Kanye West | **Sertanejo**: Henrique & Juliano | **Brazilian Funk**: WS da Igrejinha | **Electronic**: Duke Dumont
+| **Rock**: Deftones
 
 ---
 
