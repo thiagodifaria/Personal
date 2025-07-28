@@ -1,7 +1,7 @@
 
 import { z } from "zod";
 
-// Updated TFunction type to match the one from LanguageContext
+
 type TFunction = (key: string, G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION?: boolean) => string | any;
 
 export const getContactFormSchema = (t: TFunction) => z.object({
@@ -17,7 +17,7 @@ export const getContactFormSchema = (t: TFunction) => z.object({
 
 export type ContactFormValues = z.infer<ReturnType<typeof getContactFormSchema>>;
 
-// Server-side schema uses a simpler t function as it doesn't need raw returns and always expects strings.
+
 const serverT = (key: string): string => {
   const fallbackMessages: Record<string, string> = {
     "zodValidation.nameMin": "Name must be at least 2 characters.",

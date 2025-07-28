@@ -13,31 +13,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/sobre`, // Updated from /#intro
+      url: `${baseUrl}/sobre`, 
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/projetos`, // Updated from /#projects
+      url: `${baseUrl}/projetos`, 
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/#connect`, // Remains pointing to homepage section
+      url: `${baseUrl}/#connect`, 
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.7,
     },
   ] as MetadataRoute.Sitemap;
 
-  const projectPageLinks = siteData.projectsData
-    .filter(project => project.deployedLink) // Only include projects with a deployed link
+  const projectPageLinks = siteData.projectsDataStructure
+    .filter(project => project.deployedLink) 
     .map((project) => ({
-      url: project.deployedLink!, // Assert non-null as we filtered
-      // lastModified: new Date(), // Or a date from project data if available
-      changeFrequency: "never", // Or 'monthly' if projects are updated
+      url: project.deployedLink!, 
+      
+      changeFrequency: "never", 
       priority: 0.6,
     })) as MetadataRoute.Sitemap;
 

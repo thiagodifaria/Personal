@@ -11,34 +11,33 @@ import {
   Instagram, 
   Terminal, 
   Network,
-  Code, // Adicionado Code, TypeSquare foi removido
+  Code,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-// This type might need adjustment if titles/descriptions are fully managed by i18n keys
 export type ProjectStructure = {
-  id: string; // Used as a key for translations
-  img: StaticImageData | string; // Image path remains static
+  id: string;
+  img: StaticImageData | string;
   github?: string;
   deployedLink?: string;
-  technologies: string[]; // Tech names are usually not translated or consistently named
+  technologies: string[];
   dataAiHint?: string;
 };
 
 export type SocialMediaHandleStructure = {
-  nameKey: string; // Key for tooltip translation, and for general identification
+  nameKey: string;
   url: string;
   icon: LucideIcon;
 };
 
 export type NavLinkStructure = {
-  key: string; // Key for name translation
+  key: string;
   href: string;
 };
 
 export type OrbitingTech = {
-  name: string; // Tech names are usually not translated
-  icon: string; // Changed to string for SVG path
+  name: string;
+  icon: string;
   radius: number;
   duration?: number;
   reverse?: boolean;
@@ -49,27 +48,23 @@ export type OrbitingTech = {
     name: "Thiago Di Faria",
     initials: "TF",
     email: "thiagodifaria@gmail.com",
-    resumeUrl: "/curriculo.pdf"
+    resumeUrl: "/docs/curriculo.pdf"
   },
-  // heroWords, heroSubtitle, introTagline moved to locale files
   socialMedia: [
     { nameKey: "Github", url: "https://github.com/thiagodifaria", icon: Github },
     { nameKey: "Instagram", url: "https://www.instagram.com/thiagodifaria/?hl=en", icon: Instagram },
     { nameKey: "LinkedIn", url: "https://www.linkedin.com/in/thiago-di-faria-34304a34b/", icon: Linkedin },
     { nameKey: "Email", url: "mailto:thiagodifaria@gmail.com", icon: Mail },
-    { nameKey: "Resume", url: "/curriculo.pdf", icon: FileText }, 
+    { nameKey: "Resume", url: "/docs/curriculo.pdf", icon: FileText }, 
   ] as SocialMediaHandleStructure[],
   orbitingTechIcons: [
-    // Inner orbit (radius: 60)
     { name: "React", icon: "/icons/react.svg", radius: 60, duration: 28, reverse: false, delay: 0 },
     { name: "TypeScript", icon: "/icons/typescript.svg", radius: 60, duration: 28, reverse: true, delay: 14 },
 
-    // Middle orbit (radius: 100)
     { name: "Python", icon: "/icons/python.svg", radius: 100, duration: 38, reverse: true, delay: 0 },
     { name: "Next.js", icon: "/icons/nextdotjs.svg", radius: 100, duration: 38, reverse: false, delay: 19 },
     
 
-    // Outer orbit (radius: 140)
     { name: "TailwindCSS", icon: "/icons/tailwindcss.svg", radius: 140, duration: 48, reverse: false, delay: 0 },
   ] as OrbitingTech[],
   projectsDataStructure: [
@@ -92,7 +87,7 @@ export type OrbitingTech = {
     },
     {
       id: "moodAPI",
-      img: "https://placehold.co/600x375.png",
+      img: "/images/moodapi.png",
       dataAiHint: "NLP Analista de Sentimentos",
       github: "https://github.com/thiagodifaria/MoodAPI", 
       deployedLink: undefined,
@@ -100,7 +95,7 @@ export type OrbitingTech = {
     },
     {
       id: "caninana",
-      img: "https://placehold.co/600x375.png",
+      img: "/images/caninana.png",
       dataAiHint: "Antivirus Engine",
       github: "https://github.com/thiagodifaria/Caninana",
       deployedLink: undefined,
@@ -108,7 +103,7 @@ export type OrbitingTech = {
     },
     {
       id: "codex",
-      img: "https://placehold.co/600x375.png",
+      img: "/images/codex.png",
       dataAiHint: "Aplicação de Produtividade Pessoal",
       github: "https://github.com/thiagodifaria/codex",
       deployedLink: undefined,
@@ -117,7 +112,7 @@ export type OrbitingTech = {
     },
     {
       id: "begriff",
-      img: "https://placehold.co/600x375.png",
+      img: "/images/begriff.png",
       dataAiHint: "Plataforma de Inteligência Financeira",
       github: "https://github.com/thiagodifaria/begriff",
       deployedLink: undefined,

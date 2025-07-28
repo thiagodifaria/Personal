@@ -19,7 +19,7 @@ export function HeroSection() {
   const { t } = useLanguage();
   const { personalInfo, orbitingTechIcons, socialMedia } = siteData;
 
-  const heroWords = t('siteData.heroWords', true) as string[]; // Use special flag for array
+  const heroWords = t('siteData.heroWords', true) as string[];
   const heroSubtitle = t('siteData.heroSubtitle');
 
   return (

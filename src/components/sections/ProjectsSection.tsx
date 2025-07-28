@@ -1,11 +1,11 @@
 
 "use client";
 
-import type { ProjectStructure } from "@/config/siteData"; // Use ProjectStructure
+import type { ProjectStructure } from "@/config/siteData"; 
 import { ProjectCard } from "./ProjectCard";
 
 interface ProjectsSectionProps {
-  projects: ProjectStructure[]; // Use ProjectStructure
+  projects: ProjectStructure[]; 
 }
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {

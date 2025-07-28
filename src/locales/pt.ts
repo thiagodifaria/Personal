@@ -1,5 +1,5 @@
 
-// src/locales/pt.ts
+
 const ptTranslations = {
   siteData: {
     personalInfoName: "Thiago Di Faria",

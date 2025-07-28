@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
 import { Navigation } from "./Navigation";
 
-// Placeholders for dynamically imported components
+
 const LanguageSwitcherPlaceholder = ({ className }: { className?: string }) => (
   <div className={cn("flex items-center gap-0.5 h-auto pointer-events-none", className)} aria-hidden="true">
     <span className="h-auto py-0 px-0 text-xs leading-none opacity-0">PT</span>
@@ -66,7 +66,7 @@ export default function Header() {
   }, []);
 
   const headerStyle = mounted ? {
-    // @ts-ignore
+    
     "--header-background": headerTheme === 'dark' ? "hsl(var(--background))" : "hsl(var(--background))",
     "--header-foreground": headerTheme === 'dark' ? "hsl(var(--foreground))" : "hsl(var(--foreground))",
   } : {};

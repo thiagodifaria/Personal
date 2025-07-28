@@ -83,8 +83,8 @@ export default {
           },
         },
         "orbit-clockwise": {
-          "0%": { transform: "rotate(0deg) translateX(var(--radius-orbit)) rotate(0deg)" }, // translateX positions icon on the orbit path
-          "100%": { transform: "rotate(360deg) translateX(var(--radius-orbit)) rotate(-360deg)" }, // second rotate keeps icon upright
+          "0%": { transform: "rotate(0deg) translateX(var(--radius-orbit)) rotate(0deg)" },
+          "100%": { transform: "rotate(360deg) translateX(var(--radius-orbit)) rotate(-360deg)" },
         },
         "orbit-counter-clockwise": {
           "0%": { transform: "rotate(0deg) translateX(var(--radius-orbit)) rotate(0deg)" },

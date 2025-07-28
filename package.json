@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack -p 9002",
+    "dev": "next dev -p 9002 --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -40,6 +40,7 @@
     "firebase": "^11.8.1",
     "framer-motion": "^11.3.19",
     "lucide-react": "^0.475.0",
+    "mongodb": "^6.18.0",
     "mongoose": "^8.16.5",
     "next": "15.2.3",
     "patch-package": "^8.0.0",

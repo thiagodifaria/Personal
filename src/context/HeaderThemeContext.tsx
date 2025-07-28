@@ -19,7 +19,7 @@ export function HeaderThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [headerTheme, setHeaderTheme] = useState<HeaderTheme>("dark"); // Default to dark for hero section
+  const [headerTheme, setHeaderTheme] = useState<HeaderTheme>("dark"); 
 
   const contextValue = useMemo(() => ({
     headerTheme,

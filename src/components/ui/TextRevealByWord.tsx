@@ -9,16 +9,16 @@ interface TextRevealByWordProps {
   text: string;
   className?: string;
   wordClassName?: string;
-  // Base text color (revealed state)
+  
   textColor?: string;
-  // Color of the text as it's being revealed (can be same as textColor or different for effect)
+  
   revealColor?: string; 
 }
 
 const Word: React.FC<{
   children: React.ReactNode;
   range: [number, number];
-  progress: any; // MotionValue
+  progress: any; 
   className?: string;
   textColor?: string;
   revealColor?: string;
@@ -46,7 +46,7 @@ export function TextRevealByWord({
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start end", "end start"], // Animate when section is scrolling through viewport
+    offset: ["start end", "end start"], 
   });
 
   const words = text.split(" ");

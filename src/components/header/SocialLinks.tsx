@@ -30,12 +30,12 @@ export function SocialLinks({ className }: SocialLinksProps) {
             <TooltipTrigger asChild>
               <Button
                 variant="ghost"
-                size="icon" // Base size, specific overrides below
-                className={cn("h-7 w-7", iconColorClass)} // Smaller height and width
+                size="icon" 
+                className={cn("h-7 w-7", iconColorClass)} 
                 asChild
               >
                 <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={t(`siteData.socialMediaTooltips.${social.nameKey}`) || social.nameKey}>
-                  <social.icon className="h-4 w-4" /> {/* Icon size itself */}
+                  <social.icon className="h-4 w-4" /> {}
                 </a>
               </Button>
             </TooltipTrigger>

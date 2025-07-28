@@ -4,13 +4,12 @@
 import { cn } from "@/lib/utils";
 
 interface OrbitingItem {
-  icon: string; // Changed to string for SVG path
+  icon: string;
   name: string;
   radius: number;
   duration?: number;
   delay?: number; 
   reverse?: boolean;
-  // offsetX and offsetY removed as they shift the icon off the path
 }
 
 interface OrbitingCirclesProps {
@@ -22,7 +21,7 @@ interface OrbitingCirclesProps {
   radius?: number; 
   path?: boolean; 
   items: OrbitingItem[];
-  mainIcon?: React.ElementType; // Changed to React.ElementType to allow for custom main icon if needed
+  mainIcon?: React.ElementType;
 }
 
 export function OrbitingCircles({
@@ -39,7 +38,7 @@ export function OrbitingCircles({
   const uniqueRadii = Array.from(new Set(items.map(item => item.radius || defaultRadius).sort((a, b) => a - b)));
 
   return (
-    <div className={cn("relative flex h-full w-full items-center justify-center", className)}> {/* Removed overflow-hidden */}
+    <div className={cn("relative flex h-full w-full items-center justify-center", className)}>
       {path && (
         <svg
           xmlns="http://www.w3.org/2000/svg"

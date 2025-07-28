@@ -1,8 +1,8 @@
 
-// src/locales/en.ts
+
 const enTranslations = {
   siteData: {
-    personalInfoName: "Thiago Di Faria", // Proper noun
+    personalInfoName: "Thiago Di Faria", 
     heroWords: [
       "Front-End Developer",
       "Python Specialist",

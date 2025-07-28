@@ -5,7 +5,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
-// Omit "whileInView" and "viewport" as they are replaced by useInView logic
 interface BlurFadeProps extends Omit<HTMLMotionProps<"div">, "initial" | "animate" | "variants" | "transition" | "whileInView" | "viewport"> {
   delay?: number;
   className?: string;
@@ -21,7 +20,6 @@ export function BlurFade({
   ...props 
 }: BlurFadeProps) {
   const ref = useRef(null);
-  // Ensure 'once: true' is part of the useInView options
   const isInView = useInView(ref, { once: true, amount: viewportAmount });
 
   const variants = {
@@ -33,7 +31,7 @@ export function BlurFade({
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"} // Control animation based on isInView
+      animate={isInView ? "visible" : "hidden"}
       variants={variants}
       transition={{ duration: 0.5, delay }}
       className={cn(className)}

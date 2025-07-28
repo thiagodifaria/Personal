@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -33,7 +32,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               height={375}
               className={cn(
                 "object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105",
-                typeof project.img === 'string' && project.img.startsWith('https://placehold.co') ? 'grayscale hover:grayscale-0' : ''
+                typeof project.img === 'string' && project.img.startsWith('https://') ? 'priority' : ''
               )}
               placeholder={typeof project.img === 'string' ? undefined : "blur"}
               blurDataURL={typeof project.img === 'string' ? undefined : (project.img as any).blurDataURL}

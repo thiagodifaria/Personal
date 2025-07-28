@@ -21,7 +21,7 @@ export const SenderEmailTemplate: React.FC<Readonly<SenderEmailProps>> = ({
     <p>
       <strong>{siteData.personalInfo.name}</strong>
     </p>
-    {/* You can add a link to your portfolio or social media here */}
-    {/* <p><a href={process.env.NEXT_PUBLIC_APP_URL}>Visite meu portfólio</a></p> */}
+    {}
+    {}
   </div>
 );

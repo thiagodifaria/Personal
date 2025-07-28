@@ -6,7 +6,7 @@ import ptTranslations from '@/locales/pt';
 import enTranslations from '@/locales/en';
 
 export type Language = 'pt' | 'en';
-export type Translations = typeof ptTranslations; // Assuming pt and en have the same structure
+export type Translations = typeof ptTranslations; 
 
 interface LanguageContextType {
   language: Language;
@@ -19,34 +19,34 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const getNestedValue = (obj: any, path: string, G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION: boolean = false): string | any => {
   const value = path.split('.').reduce((acc, part) => acc && acc[part], obj);
-  // For FlipWords, which expects an array of strings, we allow returning the raw array.
+  
   if (G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION && Array.isArray(value)) {
     return value;
   }
-  return typeof value === 'string' ? value : path; // Fallback to path if not found or not string
+  return typeof value === 'string' ? value : path; 
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('pt'); // Default to Portuguese
+  const [language, setLanguage] = useState<Language>('pt'); 
 
   useEffect(() => {
-    // Ensure this only runs on the client
+    
     if (typeof window !== 'undefined') {
       const storedLang = localStorage.getItem('appLanguage') as Language | null;
       if (storedLang && (storedLang === 'pt' || storedLang === 'en')) {
         setLanguage(storedLang);
         document.documentElement.lang = storedLang;
       } else {
-        document.documentElement.lang = 'pt'; // Default if nothing stored
+        document.documentElement.lang = 'pt'; 
       }
     }
   }, []);
 
   useEffect(() => {
-    // Ensure this only runs on the client
+    
     if (typeof window !== 'undefined') {
       localStorage.setItem('appLanguage', language);
-      document.documentElement.lang = language; // Update HTML lang attribute
+      document.documentElement.lang = language; 
     }
   }, [language]);
 

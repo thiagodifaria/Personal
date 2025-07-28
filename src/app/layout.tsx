@@ -7,7 +7,6 @@ import { constructMetadata } from "@/lib/metadata";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-// Simplified metadata generation, no longer locale-aware via next-international
 export function generateMetadata(): Metadata {
   return constructMetadata();
 }
@@ -17,7 +16,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // The lang attribute on <html> will be managed by LanguageProvider's useEffect
   return (
     <html lang="pt" suppressHydrationWarning>
       <head>

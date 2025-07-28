@@ -15,7 +15,7 @@ const FormResponseSchema: Schema = new Schema(
     message: { type: String, required: true, trim: true },
   },
   {
-    timestamps: true, // Automatically adds createdAt and updatedAt
+    timestamps: true,
   }
 );
 
