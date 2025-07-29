@@ -8,9 +8,7 @@ const ptTranslations = {
       "Especialista em Python",
       "Projetos Back-End Escaláveis",
       "Designer UI/UX",
-      "Análise e Visualização de Dados",
-      "Código Limpo e Manutenível",
-      "Interfaces Intuitivas e Funcionais"
+      "Código Limpo e Manutenível"
     ],
     heroSubtitle: "Desenvolvedor apaixonado por criar aplicações e website únicos, inovadores e eficientes.",
     introTagline: "Eu crio experiências web intuitivas e responsivas que combinam design estético com elegância funcional.",

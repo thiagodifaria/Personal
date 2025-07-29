@@ -8,9 +8,7 @@ const enTranslations = {
       "Python Specialist",
       "Scalable Back-End Projects",
       "UI/UX Designer",
-      "Data Analysis and Visualization",
-      "Clean and Maintainable Code",
-      "Intuitive and Functional Interfaces"
+      "Clean and Maintainable Code"
     ],
     heroSubtitle: "Passionate developer creating unique, innovative, and efficient applications and websites.",
     introTagline: "I craft intuitive and responsive web experiences that blend aesthetic design with functional elegance.",
