@@ -1,4 +1,4 @@
-
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
 import { HeaderThemeProvider } from "@/context/HeaderThemeContext";
@@ -26,6 +26,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
+        <GoogleAnalytics />
         <LanguageProvider>
           <HeaderThemeProvider>
             <Header />
