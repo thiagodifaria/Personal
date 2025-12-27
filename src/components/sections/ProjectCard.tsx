@@ -24,14 +24,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     <BlurFade delay={index * 0.15} viewportAmount={0.1}>
       <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-lg border-border/70">
         <CardHeader className="p-0">
-          <div className="aspect-[16/10] overflow-hidden relative">
+          <div className="aspect-[16/10] overflow-hidden relative bg-muted/30">
             <Image
               src={project.img}
               alt={projectTitle}
               width={600}
               height={375}
               className={cn(
-                "object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105",
+                "object-contain w-full h-full transition-transform duration-300 ease-in-out hover:scale-105",
                 typeof project.img === 'string' && project.img.startsWith('https://') ? 'priority' : ''
               )}
               placeholder={typeof project.img === 'string' ? undefined : "blur"}

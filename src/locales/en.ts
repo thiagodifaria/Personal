@@ -2,7 +2,7 @@
 
 const enTranslations = {
   siteData: {
-    personalInfoName: "Thiago Di Faria", 
+    personalInfoName: "Thiago Di Faria",
     heroWords: [
       "Front-End Developer",
       "Python Specialist",
@@ -27,27 +27,58 @@ const enTranslations = {
     projects: {
       begriff: {
         title: "Begriff",
-        description: "A complete enterprise financial intelligence platform, designed to modernize legacy systems through a smart hybrid architecture. The project combines COBOL, C++, and Python to create a high-performance technological symphony, following the principles of Clean Architecture and Domain-Driven Design (DDD) to ensure modularity, scalability, and enterprise maintainability."
+        shortDescription: "Enterprise financial intelligence platform with hybrid architecture.",
+        description: "Complete enterprise financial intelligence platform demonstrating legacy system modernization through smart hybrid architecture. The project unites COBOL (legacy banking systems), C++ (high-performance processing), and Python (modern APIs with FastAPI) in an enterprise-grade technological symphony. Implements Clean Architecture with Domain-Driven Design (DDD), ensuring modularity and maintainability. Architecture includes an adaptation layer for transparent cross-language integration, distributed cache system, and ACID transactional processing. An ambitious project showing deep understanding of financial systems and gradual legacy migration."
       },
       codex: {
         title: "Codex",
-        description: "A personal productivity web application designed to help with the integrated management of activities such as a personal diary, to-do lists, projects, and long-term goals. Built with modern technologies and a focus on user experience."
+        shortDescription: "Personal productivity web app for integrated activity management.",
+        description: "Full-stack personal productivity web application built with Next.js 14, TypeScript, and Firebase for real-time authentication and persistence. The system integrates multiple features: personal diary with rich-text editor, task system with intelligent prioritization, project management with milestones, and long-term goals with progress tracking. Responsive interface with Tailwind CSS, dark/light theme, and UX optimized for productivity. Implements modern React patterns like Server Components, Suspense boundaries, and optimistic updates for fluid experience."
       },
       tesoriDiBacco: {
         title: "Tesori di Bacco",
-        description: "A sophisticated front-end web application designed as an exclusive platform for a premium wine club inspired by Italian tradition. This project was meticulously developed using modern technologies to provide users with a rich and elegant digital experience, centered on the discovery and appreciation of selected wines."
+        shortDescription: "Exclusive platform for a premium Italian wine club.",
+        description: "Sophisticated front-end web application for a premium wine club inspired by Italian tradition. Developed with React 18, TypeScript, and Vite for optimized builds. The elegant design uses Tailwind CSS with refined color palette, premium typography, and smooth animations. Features include: interactive wine catalog with advanced filters, favorites system, cards with detailed sommelier information, food pairing section, and membership area. Fully responsive layout with mobile-first approach and Lighthouse performance score above 95."
       },
       lexiconCLI: {
         title: "LexiconCLI",
-        description: "An interactive and state-of-the-art financial analysis system, meticulously developed in Python to operate directly in the terminal environment. This project is designed to empower traders, investors, quantitative analysts, and financial market enthusiasts with advanced tools for market monitoring, probabilistic forecasting, and uncertainty quantification."
+        shortDescription: "Interactive financial analysis system for terminal environment.",
+        description: "State-of-the-art interactive financial analysis system in Python for terminal environment. Offers: real-time asset monitoring with market data via financial APIs, interactive ASCII charts with Plotext, technical analysis with indicators (RSI, MACD, Bollinger Bands), probabilistic forecasting using TensorFlow and Scikit-learn, and statistical uncertainty quantification. Rich interface built with Rich library for colorful tables, progress bars, and professional formatting. Customizable alert system and report export. Standalone executable available."
       },
       moodAPI: {
         title: "MoodAPI",
-        description: "API for sentiment analysis in texts using Natural Language Processing (NLP) techniques and state-of-the-art Transformer models. This project offers a complete solution for emotional classification of texts, including robust multilingual analysis of basic and detailed sentiments with high precision, a smart cache system, advanced analytics, entity extraction, and history storage."
+        shortDescription: "API for sentiment analysis in texts using NLP.",
+        description: "Robust REST API for sentiment analysis using state-of-the-art Transformer models (BERT, RoBERTa). Offers multilingual analysis (Portuguese, English, Spanish) with basic and detailed sentiment classification, per-token confidence, and named entity extraction. Architecture includes: FastAPI with async/await, intelligent Redis cache with configurable TTL (90%+ hit rate), batch request processing queue, analytics system with dashboards, MongoDB history storage, tier-based rate limiting, and complete OpenAPI documentation. Containerized with Docker and production-ready."
       },
       caninana: {
         title: "Caninana",
-        description: "An educational project that implements the fundamental concepts of a modern antivirus engine, including file analysis, signature detection, quarantine, and automatic updates. The project implements a robust architecture that demonstrates the fundamental principles of cybersecurity and systems development."
+        shortDescription: "Educational antivirus engine with signature detection.",
+        description: "Educational project implementing fundamental concepts of a modern antivirus. The C++ core engine offers: file scanning with signature detection (hash matching), basic heuristic analysis, secure quarantine system, and automatic virus definition updates. Python/Tkinter GUI for management and monitoring. Modular architecture with CMake, logging system, scan reports, and configurable whitelist. Demonstrates deep knowledge of cybersecurity, low-level file manipulation, and systems development."
+      },
+      consiliumAPI: {
+        title: "ConsiliumAPI",
+        shortDescription: "Enterprise-grade REST API with CQRS, Event Sourcing, and observability.",
+        description: "Enterprise-grade REST API for project and task management, demonstrating senior-level architecture. Stack: Spring Boot 3.2.5, Java 17, PostgreSQL 16. Advanced features include: JWT Authentication with Refresh Tokens (15min access + 7 days refresh) with automatic rotation; Redis Cache with 80% latency reduction (100ms → 20ms, 85%+ hit rate); RabbitMQ for async processing with Dead Letter Queue; CQRS pattern with separate read/write services; Event Sourcing with immutable JSONB audit trail; Token Bucket Rate Limiting (10-1000 req/min per role); Full Observability stack (Grafana, Loki, Tempo, Prometheus, OpenTelemetry); 105+ automated tests (unit, integration, E2E) with >80% JaCoCo coverage; Automation scripts (build.sh, dev.sh, test.sh); Docker Compose with 7 services. Throughput: >2000 req/s, P95 latency <20ms."
+      },
+      sphinx: {
+        title: "Sphinx",
+        shortDescription: "AI-driven autonomous cloud engineering platform.",
+        description: "Autonomous cloud engineering platform with rich TUI interface, developed in Python with Textual framework. Key features include: AI-driven IaC generation via Google Gemini that transforms natural language into valid Terraform code; Observability dashboard with real-time Prometheus metrics and live charts; Intelligent anomaly detection with YAML rules and extensible Python plugins; Cost optimization suggestions with AI-generated code fixes; Complete Terraform flow (plan/apply) integrated in TUI; Multi-workspace management for different environments (dev/staging/prod); Action history with SQLite audit trail; Clean Hexagonal Architecture with Dependency Injection. Interface with multiple tabs: Generation Chat, Optimization Dashboard, History, Workspaces. Standalone executable available."
+      },
+      httpsServer: {
+        title: "HTTPS Server",
+        shortDescription: "High-performance HTTPS server with SIMD optimizations.",
+        description: "High-performance HTTPS server implemented in C++17 with hand-coded assembly optimizations. Performance highlights include: SIMD network operations with AVX2 (vectorized Base64, UUID v4 with hardware RNG via RDRAND, optimized hex encoding); Accelerated HTTP parsing with header detection via VPCMPEQB 32-byte and parallel method/URI extraction; Advanced cryptography (ChaCha20-Poly1305, Blake3 tree hashing, X25519 Montgomery ladder, hand-optimized AES-NI assembly, SHA-256 AVX); Multi-algorithm compression (Deflate, ultra-fast LZ4, Brotli for web); SIMD validation engine for JSON, vectorized UTF-8, and input sanitization. Benchmarks: AES-NI 3.51 GB/s throughput, SHA-256 2.1 GB/s. Real-time web benchmark interface, TLS 1.3, thread pool, structured logging. Cross-platform with CMake and NASM."
+      },
+      env: {
+        title: "ENV",
+        shortDescription: "Automation framework for Windows development environment setup.",
+        description: "Enterprise-grade PowerShell automation framework for Windows development environment setup. SOLID modular architecture with: Multi-package manager support (Chocolatey, Winget, Scoop) with automatic fallback and health checks; Parallel installation of up to 10 simultaneous packages (10x faster than sequential); State management with session-based automatic rollback on failures; Backup system with versioning, timestamps, and granular restore; TTL-based smart cache (96% reduction in redundant operations); Automatic dependency resolution between packages; SHA256/SHA512 download validation; 50+ pre-configured packages in 8 categories; Terminal customization (Oh My Posh, Starship, 5 Nerd Fonts, modern CLI tools: bat, eza, fzf, ripgrep, zoxide); Git auto-setup with 15+ professional aliases; Pester 5.0+ tests with >70% coverage; GitHub Actions CI/CD pipeline."
+      },
+      schemaAPI: {
+        title: "SchemaAPI",
+        shortDescription: "Intelligent document processing API with AI.",
+        description: "API for intelligent document processing (PDFs, DOCX, TXT, CSV, XLSX) with advanced ML pipeline. Features include: Hybrid abstractive/extractive summarization with map-reduce for long docs; Action item extraction with assignee and deadline prediction via NER and classification; Automatic knowledge graph construction with relationship discovery; Semantic search with SentenceTransformers embeddings and HNSW indexing for <200ms latency; Temporal pattern detection, trends, and anomalies; Multi-label document classification; Multilingual processing (PT, EN, ES) with unified Transformer models. Hybrid architecture: Rust core for high-performance parsing and I/O, Python for ML pipeline (Hugging Face, spaCy, scikit-learn). Infrastructure: async FastAPI, Redis cache (75%+ hit rate), PostgreSQL with pgvector, rate limiting, audit trail, OpenTelemetry. Benchmarks: <3s per document, >1000 docs/hour in batch."
       },
     },
   },
@@ -63,6 +94,7 @@ const enTranslations = {
   projectsPage: {
     title: "My Projects",
     description: "Welcome to my project gallery. Here you will find a diverse collection of the works I have developed, from complex web applications to robust APIs and analysis tools. Each card below details the challenges, solutions, and technologies employed.",
+    noProjectsFound: "No projects found in this category.",
   },
   homePage: {
     projectsSectionTitle: "My Recent Projects",
@@ -123,6 +155,25 @@ const enTranslations = {
   projectCard: {
     codeButton: "Code",
     siteButton: "View Site",
+    inDevelopment: "In Development",
+    detailsButton: "Details",
+    technologiesTitle: "Technologies",
+    exploreButton: "Explore more...",
+  },
+  projectDetail: {
+    backButton: "Back to projects",
+    aboutTitle: "About the Project",
+    technologiesTitle: "Technologies Used",
+    viewCode: "View Code",
+    viewSite: "View Site",
+    download: "Download",
+  },
+  projectCategories: {
+    all: "All",
+    backend: "Backend",
+    frontend: "Frontend",
+    fullstack: "Full Stack",
+    cli: "CLI / Tools",
     inDevelopment: "In Development",
   },
   zodValidation: {

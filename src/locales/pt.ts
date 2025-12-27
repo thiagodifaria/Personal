@@ -27,27 +27,58 @@ const ptTranslations = {
     projects: {
       begriff: {
         title: "Begriff",
-        description: "Uma plataforma empresarial completa de inteligência financeira, cuja missão é demonstrar a modernização de sistemas legados através de uma arquitetura híbrida inteligente. O projeto une COBOL, C++ e Python para criar uma sinfonia tecnológica de alta performance, seguindo os princípios de Clean Architecture e Domain-Driven Design (DDD) para garantir modularidade, escalabilidade e manutenibilidade empresarial."
+        shortDescription: "Plataforma empresarial de inteligência financeira com arquitetura híbrida.",
+        description: "Plataforma empresarial completa de inteligência financeira que demonstra modernização de sistemas legados através de arquitetura híbrida inteligente. O projeto une COBOL (sistemas legados bancários), C++ (processamento de alta performance) e Python (APIs modernas com FastAPI) em uma sinfonia tecnológica enterprise-grade. Implementa Clean Architecture com Domain-Driven Design (DDD), garantindo modularidade e manutenibilidade. A arquitetura inclui camada de adaptação para integração transparente entre linguagens, sistema de cache distribuído e processamento transacional ACID. Projeto ambicioso que mostra profundo entendimento de sistemas financeiros e migração gradual de legado."
       },
       codex: {
         title: "Codex",
-        description: "Uma aplicação web de produtividade pessoal projetada para auxiliar no gerenciamento integrado de atividades como diário pessoal, listas de tarefas, projetos e metas de longo prazo. Construído com tecnologias modernas e foco na experiência do usuário."
+        shortDescription: "Aplicação web de produtividade pessoal para gerenciamento integrado.",
+        description: "Aplicação web full-stack de produtividade pessoal construída com Next.js 14, TypeScript e Firebase para autenticação e persistência em tempo real. O sistema integra múltiplas funcionalidades: diário pessoal com editor rich-text, sistema de tarefas com priorização inteligente, gerenciamento de projetos com milestones e metas de longo prazo com tracking de progresso. Interface responsiva com Tailwind CSS, tema dark/light, e UX otimizada para produtividade. Implementa padrões modernos de React como Server Components, Suspense boundaries e otimistic updates para experiência fluida."
       },
       tesoriDiBacco: {
         title: "Tesori di Bacco",
-        description: "Uma aplicação web front-end sofisticada concebida como uma plataforma exclusiva para um clube de vinhos premium inspirado na tradição italiana. Este projeto foi meticulosamente desenvolvido utilizando tecnologias modernas para proporcionar aos usuários uma experiência digital rica e elegante, centrada na descoberta e apreciação de vinhos selecionados."
+        shortDescription: "Plataforma exclusiva para um clube de vinhos premium italiano.",
+        description: "Aplicação web front-end sofisticada para um clube de vinhos premium inspirado na tradição italiana. Desenvolvida com React 18, TypeScript e Vite para build otimizado. O design elegante utiliza Tailwind CSS com paleta de cores refinada, tipografia premium e animações suaves. Features incluem: catálogo interativo de vinhos com filtros avançados, sistema de favoritos, cards com informações sommelier detalhadas, seção de harmonizações gastronômicas e área de membership. Layout totalmente responsivo com mobile-first approach e performance Lighthouse score acima de 95."
       },
       lexiconCLI: {
         title: "LexiconCLI",
-        description: "Um sistema de análise financeira interativo e de última geração, meticulosamente desenvolvido em Python para operar diretamente no ambiente de terminal. Este projeto foi concebido para capacitar traders, investidores, analistas quantitativos e entusiastas do mercado financeiro com ferramentas avançadas para monitoramento de mercados, previsões probabilísticas e quantificação de incerteza."
+        shortDescription: "Sistema de análise financeira interativo para ambiente de terminal.",
+        description: "Sistema de análise financeira interativo e de última geração em Python para ambiente de terminal. Oferece: monitoramento de ativos em tempo real com dados de mercado via APIs financeiras, gráficos ASCII interativos com Plotext, análise técnica com indicadores (RSI, MACD, Bollinger Bands), previsões probabilísticas usando TensorFlow e Scikit-learn, e quantificação de incerteza estatística. Interface rica construída com biblioteca Rich para tabelas coloridas, progress bars e formatação profissional. Sistema de alertas personalizáveis e exportação de relatórios. Executável standalone disponível."
       },
-      moodAPI: { 
-        title: "MoodAPI", 
-        description: "API para análise de sentimentos em textos utilizando técnicas de Processamento de Linguagem Natural (NLP) e modelos Transformer de última geração. Este projeto oferece uma solução completa para classificação emocional de textos, incluindo análise multilíngue de sentimentos básicos e detalhados de forma robusta com alta precisão, sistema de cache inteligente, analytics avançados, extração de entidades, e armazenamento de histórico."
+      moodAPI: {
+        title: "MoodAPI",
+        shortDescription: "API para análise de sentimentos em textos utilizando NLP.",
+        description: "API REST robusta para análise de sentimentos utilizando modelos Transformer state-of-the-art (BERT, RoBERTa). Oferece análise multilíngue (português, inglês, espanhol) com classificação de sentimentos básicos e detalhados, confiança por token, e extração de entidades nomeadas. Arquitetura inclui: FastAPI com async/await, cache Redis inteligente com TTL configurável (90%+ hit rate), fila de processamento para requests em lote, sistema de analytics com dashboards, armazenamento de histórico em MongoDB, rate limiting por tier, e documentação OpenAPI completa. Containerizado com Docker e pronto para deploy em produção."
       },
       caninana: {
         title: "Caninana",
-        description: "Um projeto educacional que implementa os conceitos fundamentais de um engine antivírus moderno, incluindo análise de arquivos, detecção por assinaturas, quarentena e atualizações automáticas. O projeto implementa uma arquitetura robusta que demonstra os princípios fundamentais de segurança cibernética e desenvolvimento de sistemas."
+        shortDescription: "Engine antivírus educacional com detecção por assinaturas.",
+        description: "Projeto educacional que implementa conceitos fundamentais de um antivírus moderno. O core engine em C++ oferece: scanning de arquivos com detecção por assinaturas (hash matching), análise heurística básica, sistema de quarentena seguro, e atualização automática de definições de vírus. Interface gráfica em Python/Tkinter para gerenciamento e monitoramento. Arquitetura modular com CMake, sistema de logging, relatórios de scan, e whitelist configurável. Demonstra conhecimento profundo de segurança cibernética, manipulação de arquivos em baixo nível e desenvolvimento de sistemas."
+      },
+      consiliumAPI: {
+        title: "ConsiliumAPI",
+        shortDescription: "API REST enterprise-grade com CQRS, Event Sourcing e observabilidade.",
+        description: "API REST enterprise-grade para gerenciamento de projetos e tarefas, demonstrando arquitetura de nível sênior. Stack: Spring Boot 3.2.5, Java 17, PostgreSQL 16. Features avançadas incluem: Autenticação JWT com Refresh Tokens (15min access + 7 dias refresh) com rotação automática; Redis Cache com 80% de redução de latência (100ms → 20ms, hit rate 85%+); RabbitMQ para processamento assíncrono com Dead Letter Queue; Padrão CQRS com serviços separados de leitura/escrita; Event Sourcing com trilha de auditoria imutável em JSONB; Rate Limiting Token Bucket (10-1000 req/min por role); Stack de Observabilidade completa (Grafana, Loki, Tempo, Prometheus, OpenTelemetry); 105+ testes automatizados (unitários, integração, E2E) com >80% de cobertura JaCoCo; Scripts de automação (build.sh, dev.sh, test.sh); Docker Compose com 7 serviços. Throughput: >2000 req/s, latência P95 <20ms."
+      },
+      sphinx: {
+        title: "Sphinx",
+        shortDescription: "Plataforma autônoma de engenharia de nuvem orientada por IA.",
+        description: "Plataforma de engenharia de nuvem autônoma com interface TUI rica, desenvolvida em Python com framework Textual. Features principais incluem: Geração de IaC orientada por IA via Google Gemini que transforma linguagem natural em código Terraform válido; Dashboard de observabilidade com métricas Prometheus em tempo real e gráficos live; Detecção inteligente de anomalias com regras YAML e plugins Python extensíveis; Sugestões de otimização de custos com code fixes gerados por IA; Fluxo completo Terraform (plan/apply) integrado na TUI; Gerenciamento multi-workspace para diferentes ambientes (dev/staging/prod); Histórico de ações com trilha de auditoria SQLite; Arquitetura Clean Hexagonal com Dependency Injection. Interface com múltiplas abas: Chat de Geração, Dashboard de Otimização, Histórico, Workspaces. Executável standalone disponível."
+      },
+      httpsServer: {
+        title: "HTTPS Server",
+        shortDescription: "Servidor HTTPS de alta performance com otimizações SIMD.",
+        description: "Servidor HTTPS de alta performance implementado em C++17 com otimizações assembly hand-coded. Highlights de performance incluem: Operações de rede SIMD com AVX2 (Base64 vetorizado, UUID v4 com hardware RNG via RDRAND, hex encoding otimizado); Parsing HTTP acelerado com detecção de headers via VPCMPEQB 32-byte e extração method/URI em paralelo; Criptografia avançada (ChaCha20-Poly1305, Blake3 tree hashing, X25519 Montgomery ladder, AES-NI assembly hand-optimized, SHA-256 AVX); Compressão multi-algoritmo (Deflate, LZ4 ultra-rápido, Brotli para web); Engine de validação SIMD para JSON, UTF-8 vetorizada e sanitização de entrada. Benchmarks: AES-NI 3.51 GB/s throughput, SHA-256 2.1 GB/s. Interface web de benchmarks em tempo real, TLS 1.3, thread pool, logging estruturado. Cross-platform com CMake e NASM."
+      },
+      env: {
+        title: "ENV",
+        shortDescription: "Framework de automação para configuração de ambientes Windows.",
+        description: "Framework de automação PowerShell enterprise-grade para setup de ambientes de desenvolvimento Windows. Arquitetura modular SOLID com: Suporte multi-package manager (Chocolatey, Winget, Scoop) com fallback automático e health checks; Instalação paralela de até 10 pacotes simultâneos (10x mais rápido que sequencial); Gerenciamento de estado com rollback automático baseado em sessão em caso de falhas; Sistema de backup com versionamento, timestamps e restore granular; Cache inteligente baseado em TTL (96% redução em operações redundantes); Resolução automática de dependências entre pacotes; Validação SHA256/SHA512 de downloads; 50+ pacotes pré-configurados em 8 categorias; Customização de terminal (Oh My Posh, Starship, 5 Nerd Fonts, ferramentas CLI modernas: bat, eza, fzf, ripgrep, zoxide); Auto-configuração Git com 15+ aliases profissionais; Testes Pester 5.0+ com >70% de cobertura; Pipeline CI/CD GitHub Actions."
+      },
+      schemaAPI: {
+        title: "SchemaAPI",
+        shortDescription: "API de processamento inteligente de documentos com IA.",
+        description: "API para processamento inteligente de documentos (PDFs, DOCX, TXT, CSV, XLSX) com pipeline ML avançado. Features incluem: Sumarização híbrida abstractiva/extractiva com map-reduce para docs longos; Extração de itens de ação com predição de responsável e prazo via NER e classificação; Construção automática de grafo de conhecimento com descoberta de relacionamentos; Busca semântica com embeddings SentenceTransformers e indexação HNSW para <200ms de latência; Detecção de padrões temporais, tendências e anomalias; Classificação multi-label de documentos; Processamento multilíngue (PT, EN, ES) com modelos Transformer unificados. Arquitetura híbrida: Core Rust para parsing de alta performance e I/O, Python para pipeline ML (Hugging Face, spaCy, scikit-learn). Infraestrutura: FastAPI async, Redis cache (75%+ hit rate), PostgreSQL com pgvector, rate limiting, trilha de auditoria, OpenTelemetry. Benchmarks: <3s por documento, >1000 docs/hora em batch."
       },
     },
   },
@@ -63,6 +94,7 @@ const ptTranslations = {
   projectsPage: {
     title: "Meus Projetos",
     description: "Bem-vindo à minha galeria de projetos. Aqui você encontrará uma coleção diversificada dos trabalhos que desenvolvi, desde aplicações web complexas a APIs robustas e ferramentas de análise. Cada card abaixo detalha os desafios, soluções e tecnologias empregadas.",
+    noProjectsFound: "Nenhum projeto encontrado nesta categoria.",
   },
   homePage: {
     projectsSectionTitle: "Meus Projetos Recentes",
@@ -123,6 +155,26 @@ const ptTranslations = {
   projectCard: {
     codeButton: "Código",
     siteButton: "Ver Site",
+    inDevelopment: "Em Desenvolvimento",
+    detailsButton: "Detalhes",
+    technologiesTitle: "Tecnologias",
+    exploreButton: "Explorar mais...",
+  },
+
+  projectDetail: {
+    backButton: "Voltar aos projetos",
+    aboutTitle: "Sobre o Projeto",
+    technologiesTitle: "Tecnologias Utilizadas",
+    viewCode: "Ver Código",
+    viewSite: "Ver Site",
+    download: "Download",
+  },
+  projectCategories: {
+    all: "Todos",
+    backend: "Backend",
+    frontend: "Frontend",
+    fullstack: "Full Stack",
+    cli: "CLI / Tools",
     inDevelopment: "Em Desenvolvimento",
   },
   zodValidation: {

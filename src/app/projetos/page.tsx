@@ -1,7 +1,7 @@
 
-"use client"; 
+"use client";
 
-import { usePathname } from 'next/navigation'; 
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SectionThemeUpdater } from "@/components/SectionThemeUpdater";
@@ -9,7 +9,7 @@ import { siteData } from "@/config/siteData";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProjetosPage() {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -18,10 +18,10 @@ export default function ProjetosPage() {
 
   return (
     <SectionThemeUpdater
-      key={pathname} 
-      theme="light" 
+      key={pathname}
+      theme="light"
       as="main"
-      className="flex flex-col min-h-screen bg-background" 
+      className="flex flex-col min-h-screen bg-background"
     >
       <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex-grow">
         <div className="text-center mb-16">
@@ -32,7 +32,7 @@ export default function ProjetosPage() {
             {t('projectsPage.description')}
           </p>
         </div>
-        <ProjectsSection projects={siteData.projectsDataStructure} />
+        <ProjectsSection projects={siteData.projectsDataStructure} showFilters />
       </div>
     </SectionThemeUpdater>
   );
