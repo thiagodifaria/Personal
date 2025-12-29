@@ -23,6 +23,7 @@ import {
   FileJson,
   Settings,
   Cpu,
+  Zap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -97,6 +98,17 @@ export const siteData = {
     { name: "TailwindCSS", icon: "/icons/tailwindcss.svg", radius: 140, duration: 48, reverse: false, delay: 0 },
   ] as OrbitingTech[],
   projectsDataStructure: [
+    {
+      id: "helixCore",
+      img: "/images/helix.png",
+      dataAiHint: "Backend Runtime Platform",
+      github: "https://github.com/thiagodifaria/Helix-Core",
+      deployedLink: undefined,
+      technologies: ["Python", "C++", "NASM", "asyncio", "PyQt6"],
+      category: ["backend", "cli", "fullstack"],
+      icon: Zap,
+      primaryTech: "Python",
+    },
     {
       id: "lexiconCLI",
       img: "/images/lexiconcli.png",

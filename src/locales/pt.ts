@@ -25,6 +25,11 @@ const ptTranslations = {
       Resume: "Currículo",
     },
     projects: {
+      helixCore: {
+        title: "Helix-Core",
+        shortDescription: "Runtime de backend unificado com Gateway, Cache e Queue em um único binário.",
+        description: "Runtime de infraestrutura backend unificado combinando API Gateway, Cache em Memória e Message Queue em um único binário de alta performance. Camada Python: asyncio com uvloop, aiohttp, PyQt6 (GUI estilo Windows XP), Typer CLI, integração Prometheus/Loki/Grafana. Camada C++: Core engine com operações de memória SIMD AVX2 (memcpy, memset, memcmp, memchr em Assembly x64), hash table sharded com 16 locks de leitura-escrita, parser RESP3 zero-copy, alocador slab com múltiplas classes de tamanho. Features: Rate Limiting Token Bucket, Circuit Breaker com estados OPEN/HALF-OPEN/CLOSED, autenticação JWT, consumer groups para queue, commit log append-only com segmentos, Dead Letter Queue. Benchmarks: Cache nativo 500k ops/s GET, 400k ops/s SET; Gateway 50k req/s; Queue 200k msg/s."
+      },
       begriff: {
         title: "Begriff",
         shortDescription: "Plataforma empresarial de inteligência financeira com arquitetura híbrida.",
