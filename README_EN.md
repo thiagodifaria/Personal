@@ -56,13 +56,11 @@ Hello! I'm **Thiago Di Faria**, a software developer from Belo Horizonte, Minas 
 - **Stack**: Python + FastAPI + C++20 + COBOL + SQLite
 - **Highlights**: Hybrid architecture, ML fraud detection, 100K+ transactions/second
 - **Concepts**: Clean Architecture, DDD, Legacy modernization, Enterprise security
-- **Status**: In active development
 
 #### 📝 [**Codex**](https://github.com/thiagodifaria/Codex) - *Personal Productivity*
 **Modern personal productivity application**
 - **Stack**: Next.js 15 + TypeScript + Firebase + Tailwind CSS
 - **Highlights**: Rich text editor (Tiptap), goal system, internationalization
-- **Status**: In active development
 
 #### 🛡️ [**Caninana**](https://github.com/thiagodifaria/Caninana) - *Antivirus Engine*
 **Educational antivirus engine in modern C++**

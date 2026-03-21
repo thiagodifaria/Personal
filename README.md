@@ -69,13 +69,11 @@ Software developer from **Belo Horizonte, MG** with a passion for **backend deve
 - Python + FastAPI + C++20 + COBOL + SQLite
 - Hybrid architecture, 100K+ transactions/second
 - Legacy modernization with Clean Architecture/DDD
-- **Status**: In active development
 
 ### 📝 [**Codex**](https://github.com/thiagodifaria/Codex)
 **Personal Productivity Application**
 - Next.js 15 + TypeScript + Firebase + Tailwind CSS
 - Rich text editor, goal system, internationalization
-- **Status**: In active development
 
 ### 🛡️ [**Caninana**](https://github.com/thiagodifaria/Caninana)
 **Educational Antivirus Engine**
