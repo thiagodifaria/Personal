@@ -5,6 +5,7 @@ import Link from "next/link";
 import { siteData } from "@/config/siteData";
 import { useHeaderTheme } from "@/context/HeaderThemeContext";
 import { cn } from "@/lib/utils";
+import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
 import { Navigation } from "./Navigation";
@@ -36,7 +37,7 @@ const DynamicLanguageSwitcher = dynamic(
   () => import('@/components/LanguageSwitcher').then(mod => mod.LanguageSwitcher),
   {
     ssr: false,
-    loading: ({ className }) => <LanguageSwitcherPlaceholder className={className} />,
+    loading: () => <LanguageSwitcherPlaceholder />,
   }
 );
 
@@ -44,7 +45,7 @@ const DynamicSocialLinks = dynamic(
   () => import('./SocialLinks').then(mod => mod.SocialLinks),
   {
     ssr: false,
-    loading: ({ className }) => <SocialLinksPlaceholder className={className} />,
+    loading: () => <SocialLinksPlaceholder />,
   }
 );
 
@@ -65,11 +66,11 @@ export default function Header() {
     setMounted(true);
   }, []);
 
-  const headerStyle = mounted ? {
+  const headerStyle: CSSProperties & Record<"--header-background" | "--header-foreground", string> | undefined = mounted ? {
     
     "--header-background": headerTheme === 'dark' ? "hsl(var(--background))" : "hsl(var(--background))",
     "--header-foreground": headerTheme === 'dark' ? "hsl(var(--foreground))" : "hsl(var(--foreground))",
-  } : {};
+  } : undefined;
   
   const headerClasses = cn(
     "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ease-in-out",

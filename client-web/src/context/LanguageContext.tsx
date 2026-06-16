@@ -6,7 +6,7 @@ import ptTranslations from '@/locales/pt';
 import enTranslations from '@/locales/en';
 
 export type Language = 'pt' | 'en';
-export type Translations = typeof ptTranslations; 
+export type Translations = typeof ptTranslations | typeof enTranslations;
 
 interface LanguageContextType {
   language: Language;

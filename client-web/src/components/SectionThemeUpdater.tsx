@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 interface SectionThemeUpdaterProps extends HTMLAttributes<HTMLElement> {
   theme: HeaderTheme;
   children: React.ReactNode;
-  as?: keyof JSX.IntrinsicElements; 
+  as?: "section" | "main" | "div" | "article";
 }
 
 export const SectionThemeUpdater: React.FC<SectionThemeUpdaterProps> = ({
@@ -18,11 +18,14 @@ export const SectionThemeUpdater: React.FC<SectionThemeUpdaterProps> = ({
   children,
   className,
   id,
-  as: Component = "section", 
+  as: Component = "section",
   ...props
 }) => {
   const { setHeaderTheme } = useHeaderTheme();
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement | null>(null);
+  const setRef = (node: HTMLElement | null) => {
+    ref.current = node;
+  };
   
   
   const isInView = useInView(ref, { margin: "-49% 0px -49% 0px" });
@@ -34,5 +37,20 @@ export const SectionThemeUpdater: React.FC<SectionThemeUpdaterProps> = ({
   }, [isInView, setHeaderTheme, theme]);
 
   
-  return <Component ref={ref} className={cn(className)} id={id} {...props}>{children}</Component>;
+  const sharedProps = {
+    className: cn(className),
+    id,
+    ...props,
+  };
+
+  if (Component === "main") {
+    return <main ref={setRef} {...sharedProps}>{children}</main>;
+  }
+  if (Component === "div") {
+    return <div ref={setRef} {...sharedProps}>{children}</div>;
+  }
+  if (Component === "article") {
+    return <article ref={setRef} {...sharedProps}>{children}</article>;
+  }
+  return <section ref={setRef} {...sharedProps}>{children}</section>;
 };

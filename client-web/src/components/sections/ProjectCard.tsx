@@ -25,19 +25,21 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-lg border-border/70">
         <CardHeader className="p-0">
           <div className="aspect-[16/10] overflow-hidden relative bg-muted/30">
-            <Image
-              src={project.img}
-              alt={projectTitle}
-              width={600}
-              height={375}
-              className={cn(
-                "object-contain w-full h-full transition-transform duration-300 ease-in-out hover:scale-105",
-                typeof project.img === 'string' && project.img.startsWith('https://') ? 'priority' : ''
-              )}
-              placeholder={typeof project.img === 'string' ? undefined : "blur"}
-              blurDataURL={typeof project.img === 'string' ? undefined : (project.img as any).blurDataURL}
-              data-ai-hint={project.dataAiHint || "project showcase"}
-            />
+            {project.img && (
+              <Image
+                src={project.img}
+                alt={projectTitle}
+                width={600}
+                height={375}
+                className={cn(
+                  "object-contain w-full h-full transition-transform duration-300 ease-in-out hover:scale-105",
+                  typeof project.img === 'string' && project.img.startsWith('https://') ? 'priority' : ''
+                )}
+                placeholder={typeof project.img === 'string' ? undefined : "blur"}
+                blurDataURL={typeof project.img === 'string' ? undefined : project.img.blurDataURL}
+                data-ai-hint={project.dataAiHint || "project showcase"}
+              />
+            )}
             {project.inDevelopment && (
               <div className="absolute top-2 right-2 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-md">{t('projectCard.inDevelopment')}</div>
             )}

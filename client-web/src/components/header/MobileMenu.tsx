@@ -30,7 +30,7 @@ const DynamicLanguageSwitcher = dynamic(
   () => import('@/components/LanguageSwitcher').then(mod => mod.LanguageSwitcher),
   {
     ssr: false,
-    loading: ({ className }) => <LanguageSwitcherPlaceholder className={className} />,
+    loading: () => <LanguageSwitcherPlaceholder />,
   }
 );
 

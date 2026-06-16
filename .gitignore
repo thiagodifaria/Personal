@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+client-web/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -15,10 +16,13 @@
 
 # next.js
 /.next/
+client-web/.next/
 /out/
+client-web/out/
 
 # production
 /build
+client-web/build
 
 # misc
 .DS_Store
@@ -35,10 +39,13 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+client-web/*.tsbuildinfo
 next-env.d.ts
+client-web/next-env.d.ts
 
 .genkit/*
 .env*
+client-web/.env*
 
 # firebase
 firebase-debug.log
