@@ -43,17 +43,27 @@ const ptTranslations = {
       tesoriDiBacco: {
         title: "Tesori di Bacco",
         shortDescription: "Plataforma exclusiva para um clube de vinhos premium italiano.",
-        description: "Aplicação web front-end sofisticada para um clube de vinhos premium inspirado na tradição italiana. Desenvolvida com React 18, TypeScript e Vite para build otimizado. O design elegante utiliza Tailwind CSS com paleta de cores refinada, tipografia premium e animações suaves. Features incluem: catálogo interativo de vinhos com filtros avançados, sistema de favoritos, cards com informações sommelier detalhadas, seção de harmonizações gastronômicas e área de membership. Layout totalmente responsivo com mobile-first approach e performance Lighthouse score acima de 95."
+        description: "Aplicação web front-end sofisticada para um clube de vinhos premium inspirado na tradição italiana. Desenvolvida com React 19, TypeScript, Vite e Tailwind CSS. Reúne catálogo interativo, filtros, favoritos, informações de sommeliers, harmonizações gastronômicas, área de assinatura e blog editorial em uma experiência responsiva."
+      },
+      erp: {
+        title: "ERP",
+        shortDescription: "Plataforma empresarial completa, organizada como um produto interno sério.",
+        description: "Plataforma empresarial multi-tenant e container-first que integra vendas, clientes, faturamento, finanças, rotinas fiscais, documentos, relatórios e automações. A arquitetura poliglota reúne serviços em TypeScript, Python, Rust, Go, C#, Elixir e PostgreSQL, com uma interface React para operação das APIs."
+      },
+      apiGateway: {
+        title: "API-Gateway",
+        shortDescription: "API Gateway de alta performance em C++17, evoluído de um servidor HTTPS.",
+        description: "Gateway de APIs em C++17 para roteamento, balanceamento de carga, verificações de saúde, rate limiting, autenticação, observabilidade e montagem SIMD. Inclui TLS com OpenSSL, otimizações de baixo nível com NASM e build multiplataforma com CMake."
       },
       lexiconCLI: {
         title: "LexiconCLI",
-        shortDescription: "Sistema de análise financeira interativo para ambiente de terminal.",
-        description: "Sistema de análise financeira interativo e de última geração em Python para ambiente de terminal. Oferece: monitoramento de ativos em tempo real com dados de mercado via APIs financeiras, gráficos ASCII interativos com Plotext, análise técnica com indicadores (RSI, MACD, Bollinger Bands), previsões probabilísticas usando TensorFlow e Scikit-learn, e quantificação de incerteza estatística. Interface rica construída com biblioteca Rich para tabelas coloridas, progress bars e formatação profissional. Sistema de alertas personalizáveis e exportação de relatórios. Executável standalone disponível."
+        shortDescription: "Plataforma terminal-first de análise financeira e monitoramento de mercado.",
+        description: "Plataforma de análise financeira em Python para o terminal. Combina monitoramento de mercado, análise técnica, indicadores macroeconômicos, previsões probabilísticas, simulação de Monte Carlo, backtesting, alertas proativos e rastreamento de experimentos. A arquitetura inclui interface CLI, persistência opcional em TimescaleDB, eventos com RabbitMQ e MLflow."
       },
       moodAPI: {
         title: "MoodAPI",
-        shortDescription: "API para análise de sentimentos em textos utilizando NLP.",
-        description: "API REST robusta para análise de sentimentos utilizando modelos Transformer state-of-the-art (BERT, RoBERTa). Oferece análise multilíngue (português, inglês, espanhol) com classificação de sentimentos básicos e detalhados, confiança por token, e extração de entidades nomeadas. Arquitetura inclui: FastAPI com async/await, cache Redis inteligente com TTL configurável (90%+ hit rate), fila de processamento para requests em lote, sistema de analytics com dashboards, armazenamento de histórico em MongoDB, rate limiting por tier, e documentação OpenAPI completa. Containerizado com Docker e pronto para deploy em produção."
+        shortDescription: "Plataforma de inteligência de sentimentos com inferência Transformer e auditoria.",
+        description: "Plataforma de inteligência de sentimentos voltada à produção, com inferência por Transformers, histórico de previsões auditável, processamento assíncrono, streaming de eventos, busca semântica e observabilidade local. O projeto combina FastAPI, React, PostgreSQL, Redis, RabbitMQ e Qdrant."
       },
       caninana: {
         title: "Caninana",
@@ -82,8 +92,8 @@ const ptTranslations = {
       },
       schemaAPI: {
         title: "SchemaAPI",
-        shortDescription: "API de processamento inteligente de documentos com IA.",
-        description: "API para processamento inteligente de documentos (PDFs, DOCX, TXT, CSV, XLSX) com pipeline ML avançado. Features incluem: Sumarização híbrida abstractiva/extractiva com map-reduce para docs longos; Extração de itens de ação com predição de responsável e prazo via NER e classificação; Construção automática de grafo de conhecimento com descoberta de relacionamentos; Busca semântica com embeddings SentenceTransformers e indexação HNSW para <200ms de latência; Detecção de padrões temporais, tendências e anomalias; Classificação multi-label de documentos; Processamento multilíngue (PT, EN, ES) com modelos Transformer unificados. Arquitetura híbrida: Core Rust para parsing de alta performance e I/O, Python para pipeline ML (Hugging Face, spaCy, scikit-learn). Infraestrutura: FastAPI async, Redis cache (75%+ hit rate), PostgreSQL com pgvector, rate limiting, trilha de auditoria, OpenTelemetry. Benchmarks: <3s por documento, >1000 docs/hora em batch."
+        shortDescription: "Plataforma de inteligência documental com busca híbrida, RAG e governança.",
+        description: "Plataforma de inteligência documental para ingestão local, extração estruturada, recuperação híbrida, RAG com citações, GraphRAG leve, verificações de governança e observabilidade. A solução reúne API em Rust, workers em Python, PostgreSQL com pgvector, RabbitMQ e uma central de controle desktop em Electron e React."
       },
     },
   },
@@ -160,7 +170,6 @@ const ptTranslations = {
   projectCard: {
     codeButton: "Código",
     siteButton: "Ver Site",
-    inDevelopment: "Em Desenvolvimento",
     detailsButton: "Detalhes",
     technologiesTitle: "Tecnologias",
     exploreButton: "Explorar mais...",

@@ -43,17 +43,27 @@ const enTranslations = {
       tesoriDiBacco: {
         title: "Tesori di Bacco",
         shortDescription: "Exclusive platform for a premium Italian wine club.",
-        description: "Sophisticated front-end web application for a premium wine club inspired by Italian tradition. Developed with React 18, TypeScript, and Vite for optimized builds. The elegant design uses Tailwind CSS with refined color palette, premium typography, and smooth animations. Features include: interactive wine catalog with advanced filters, favorites system, cards with detailed sommelier information, food pairing section, and membership area. Fully responsive layout with mobile-first approach and Lighthouse performance score above 95."
+        description: "Sophisticated front-end web application for a premium wine club inspired by Italian tradition. Built with React 19, TypeScript, Vite, and Tailwind CSS. It brings together an interactive catalog, filters, favorites, sommelier information, food pairings, a subscription area, and an editorial blog in a responsive experience."
+      },
+      erp: {
+        title: "ERP",
+        shortDescription: "Complete enterprise platform organized as a serious internal product.",
+        description: "Multi-tenant, container-first enterprise platform that connects sales, customers, billing, finance, fiscal routines, documents, reports, and automation. Its polyglot architecture combines TypeScript, Python, Rust, Go, C#, Elixir, and PostgreSQL services with a React interface for API operations."
+      },
+      apiGateway: {
+        title: "API-Gateway",
+        shortDescription: "High-performance C++17 API Gateway evolved from an HTTPS server.",
+        description: "C++17 API Gateway for routing, load balancing, health checks, rate limiting, authentication, observability, and SIMD assembly. It includes TLS with OpenSSL, low-level NASM optimizations, and cross-platform builds with CMake."
       },
       lexiconCLI: {
         title: "LexiconCLI",
-        shortDescription: "Interactive financial analysis system for terminal environment.",
-        description: "State-of-the-art interactive financial analysis system in Python for terminal environment. Offers: real-time asset monitoring with market data via financial APIs, interactive ASCII charts with Plotext, technical analysis with indicators (RSI, MACD, Bollinger Bands), probabilistic forecasting using TensorFlow and Scikit-learn, and statistical uncertainty quantification. Rich interface built with Rich library for colorful tables, progress bars, and professional formatting. Customizable alert system and report export. Standalone executable available."
+        shortDescription: "Terminal-first financial analysis and market-monitoring platform.",
+        description: "Python financial analysis platform for the terminal. It combines market monitoring, technical analysis, macroeconomic indicators, probabilistic forecasting, Monte Carlo simulation, backtesting, proactive alerts, and experiment tracking. The architecture includes a CLI interface, optional TimescaleDB persistence, RabbitMQ events, and MLflow."
       },
       moodAPI: {
         title: "MoodAPI",
-        shortDescription: "API for sentiment analysis in texts using NLP.",
-        description: "Robust REST API for sentiment analysis using state-of-the-art Transformer models (BERT, RoBERTa). Offers multilingual analysis (Portuguese, English, Spanish) with basic and detailed sentiment classification, per-token confidence, and named entity extraction. Architecture includes: FastAPI with async/await, intelligent Redis cache with configurable TTL (90%+ hit rate), batch request processing queue, analytics system with dashboards, MongoDB history storage, tier-based rate limiting, and complete OpenAPI documentation. Containerized with Docker and production-ready."
+        shortDescription: "Sentiment intelligence platform with Transformer inference and auditing.",
+        description: "Production-minded sentiment intelligence platform with Transformer inference, auditable prediction history, asynchronous processing, event streaming, semantic search, and local observability. It combines FastAPI, React, PostgreSQL, Redis, RabbitMQ, and Qdrant."
       },
       caninana: {
         title: "Caninana",
@@ -82,8 +92,8 @@ const enTranslations = {
       },
       schemaAPI: {
         title: "SchemaAPI",
-        shortDescription: "Intelligent document processing API with AI.",
-        description: "API for intelligent document processing (PDFs, DOCX, TXT, CSV, XLSX) with advanced ML pipeline. Features include: Hybrid abstractive/extractive summarization with map-reduce for long docs; Action item extraction with assignee and deadline prediction via NER and classification; Automatic knowledge graph construction with relationship discovery; Semantic search with SentenceTransformers embeddings and HNSW indexing for <200ms latency; Temporal pattern detection, trends, and anomalies; Multi-label document classification; Multilingual processing (PT, EN, ES) with unified Transformer models. Hybrid architecture: Rust core for high-performance parsing and I/O, Python for ML pipeline (Hugging Face, spaCy, scikit-learn). Infrastructure: async FastAPI, Redis cache (75%+ hit rate), PostgreSQL with pgvector, rate limiting, audit trail, OpenTelemetry. Benchmarks: <3s per document, >1000 docs/hour in batch."
+        shortDescription: "Document intelligence platform with hybrid retrieval, RAG, and governance.",
+        description: "Document intelligence platform for local ingestion, structured extraction, hybrid retrieval, cited RAG, lightweight GraphRAG, governance checks, and observability. It combines a Rust API, Python workers, PostgreSQL with pgvector, RabbitMQ, and an Electron/React desktop control plane."
       },
     },
   },
@@ -160,7 +170,6 @@ const enTranslations = {
   projectCard: {
     codeButton: "Code",
     siteButton: "View Site",
-    inDevelopment: "In Development",
     detailsButton: "Details",
     technologiesTitle: "Technologies",
     exploreButton: "Explore more...",
