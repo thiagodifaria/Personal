@@ -125,7 +125,7 @@ export default function ProjectDetailPage() {
                         <h2 className="text-2xl font-headline font-semibold mb-4 text-foreground">
                             {t("projectDetail.aboutTitle")}
                         </h2>
-                        <p className="text-lg leading-relaxed text-muted-foreground">
+                        <p className="text-lg leading-relaxed text-muted-foreground whitespace-pre-line">
                             {projectDescription}
                         </p>
                     </div>

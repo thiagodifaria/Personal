@@ -102,7 +102,7 @@ export const siteData = {
     },
     {
       id: "apiGateway",
-      img: "/images/httpsserver.png",
+      img: "/images/api-gateway/dashboard.png",
       dataAiHint: "High Performance API Gateway",
       github: "https://github.com/thiagodifaria/API-Gateway",
       technologies: ["C++17", "OpenSSL", "CMake", "NASM", "SIMD"],
@@ -112,6 +112,7 @@ export const siteData = {
     },
     {
       id: "schemaAPI",
+      img: "/images/schemaapi/dashboard.png",
       dataAiHint: "Document Intelligence Platform",
       github: "https://github.com/thiagodifaria/SchemaAPI",
       technologies: ["Rust", "Python", "Electron", "PostgreSQL", "RabbitMQ"],

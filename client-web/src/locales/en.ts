@@ -42,28 +42,28 @@ const enTranslations = {
       },
       tesoriDiBacco: {
         title: "Tesori di Bacco",
-        shortDescription: "Exclusive platform for a premium Italian wine club.",
-        description: "Sophisticated front-end web application for a premium wine club inspired by Italian tradition. Built with React 19, TypeScript, Vite, and Tailwind CSS. It brings together an interactive catalog, filters, favorites, sommelier information, food pairings, a subscription area, and an editorial blog in a responsive experience."
+        shortDescription: "A digital experience for discovering and subscribing to selected Italian wines.",
+        description: "Tesori di Bacco is a digital experience created for a premium wine club inspired by Italian tradition. Rather than presenting a simple product showcase, it invites people to discover labels, understand tasting notes, explore food pairings, and enjoy stories told by sommeliers. The catalog supports filtering, search, favorites, and detail pages rich in context, making discovery feel closer to a conversation in an enoteca than to an ordinary purchase.\n\nThe journey continues with six membership tiers, exclusive benefits at partner restaurants, and the club's editorial journal. It also includes age verification, simulated authentication with persistent sessions, and an area tailored to each member profile. React 19, TypeScript, Vite, and Tailwind CSS support an elegant, fast, responsive interface that demonstrates how design, content, and business rules can work together to give a premium brand its identity."
       },
       erp: {
         title: "ERP",
-        shortDescription: "Complete enterprise platform organized as a serious internal product.",
-        description: "Multi-tenant, container-first enterprise platform that connects sales, customers, billing, finance, fiscal routines, documents, reports, and automation. Its polyglot architecture combines TypeScript, Python, Rust, Go, C#, Elixir, and PostgreSQL services with a React interface for API operations."
+        shortDescription: "A central system for a company's sales, customers, finances, and operations.",
+        description: "This project treats an ERP as a company's operating system rather than a loose collection of registration screens. It connects an entire business journey: a contact can become an opportunity, a proposal, a contract, and a billing obligation; the movement reaches finance, creates documents, triggers automation, and appears in reports. Sales, customers, subscriptions, billing, payments, purchasing, inventory, documents, and indicators stop living across disconnected spreadsheets and tools.\n\nThe platform is also designed for real growth and control. It serves multiple companies with isolated data, organizes permissions, limits, and operational evidence, and anticipates integrations with banks, payment providers, digital signing, communication, market data, and artificial intelligence tools. Its architecture assigns clear responsibilities to TypeScript, Python, Rust, Go, C#, Elixir, and PostgreSQL services, while a React interface helps document, test, and operate the APIs."
       },
       apiGateway: {
-        title: "API-Gateway",
-        shortDescription: "High-performance C++17 API Gateway evolved from an HTTPS server.",
-        description: "C++17 API Gateway for routing, load balancing, health checks, rate limiting, authentication, observability, and SIMD assembly. It includes TLS with OpenSSL, low-level NASM optimizations, and cross-platform builds with CMake."
+        title: "API Gateway",
+        shortDescription: "A secure front door that organizes and protects traffic between services.",
+        description: "API Gateway is the layer that stands in front of a service architecture: every request enters through it, is validated, protected, and sent to the right destination. Instead of exposing each service and making it repeat the same rules, the gateway creates a single entry point for the application. This makes operations simpler, gives teams more control over security, and makes traffic behavior easier to understand.\n\nBuilt in C++17, the project evolves an HTTPS server foundation into a complete piece of infrastructure. It implements dynamic routing, reverse proxying, upstream pools, load balancing, active and passive health checks, request limiting, API key and JWT authentication, metrics, readiness endpoints, and WebSocket support. TLS is provided by OpenSSL, while NASM and SIMD instructions accelerate low level work. The result is a practical systems engineering showcase for protecting, distributing, and monitoring traffic in modern services."
       },
       lexiconCLI: {
         title: "LexiconCLI",
-        shortDescription: "Terminal-first financial analysis and market-monitoring platform.",
-        description: "Python financial analysis platform for the terminal. It combines market monitoring, technical analysis, macroeconomic indicators, probabilistic forecasting, Monte Carlo simulation, backtesting, proactive alerts, and experiment tracking. The architecture includes a CLI interface, optional TimescaleDB persistence, RabbitMQ events, and MLflow."
+        shortDescription: "A terminal tool to follow markets and test investment strategies.",
+        description: "LexiconCLI puts a financial analysis terminal in the hands of people who want to follow markets with more context. It brings together stocks, indices, and custom watchlists, combines prices with technical and macroeconomic indicators, and turns historical data into a clearer view of possible scenarios. Rather than promising certainty, it helps investigate market movements, compare assets, and understand risk before making a decision.\n\nThe project can also test strategies against past data, create price and indicator alerts, run Monte Carlo simulations, and generate forecasts with models such as LSTM and Prophet while exposing the uncertainty involved. Data can come from Finnhub, yfinance, Alpha Vantage, Banco Central, and FRED. Python drives the terminal experience with Rich, while TimescaleDB stores time series, RabbitMQ organizes events, and MLflow records model experiments and training runs."
       },
       moodAPI: {
         title: "MoodAPI",
-        shortDescription: "Sentiment intelligence platform with Transformer inference and auditing.",
-        description: "Production-minded sentiment intelligence platform with Transformer inference, auditable prediction history, asynchronous processing, event streaming, semantic search, and local observability. It combines FastAPI, React, PostgreSQL, Redis, RabbitMQ, and Qdrant."
+        shortDescription: "A service that identifies the sentiment in text and keeps each result traceable.",
+        description: "MoodAPI turns text into signals that can be understood and followed. It receives a message, comment, or short document and identifies whether the prevailing sentiment is positive, negative, or neutral, including across multiple languages. The goal is not only to produce an instant classification: every prediction is stored, can be consulted later, and becomes part of a reliable history for audits, quality analysis, or customer service monitoring.\n\nBehind the interface is an architecture shaped like a real backend product. Hugging Face Transformer models interpret language; FastAPI exposes and validates the API; PostgreSQL preserves history; Redis speeds up queries and helps control usage; RabbitMQ and Celery process background work. Qdrant enables meaning based search, while Prometheus, Grafana, and OpenTelemetry show operational health. A React console makes it easy to test the resources without requiring familiarity with code."
       },
       caninana: {
         title: "Caninana",
@@ -92,8 +92,8 @@ const enTranslations = {
       },
       schemaAPI: {
         title: "SchemaAPI",
-        shortDescription: "Document intelligence platform with hybrid retrieval, RAG, and governance.",
-        description: "Document intelligence platform for local ingestion, structured extraction, hybrid retrieval, cited RAG, lightweight GraphRAG, governance checks, and observability. It combines a Rust API, Python workers, PostgreSQL with pgvector, RabbitMQ, and an Electron/React desktop control plane."
+        shortDescription: "A platform that turns documents into searchable answers with sources and control.",
+        description: "SchemaAPI turns hard to search documents, such as PDFs, spreadsheets, text files, and corporate material, into a knowledge base that people can actually use. Files can be uploaded, information can be found by words or meaning, and questions can be asked in natural language. Every answer points to the evidence that supports it, bringing the experience closer to talking to your own documents without losing confidence about where each piece of information came from.\n\nThe platform is designed for local operations and environments that require control over data. It extracts structured content, tables, sections, topics, clauses, and indicators; processes documents in the background; combines textual and vector search; records audits; and provides analysis, governance, and observability screens. The Rust API prioritizes performance, Python workers handle extraction and intelligent processing, PostgreSQL with pgvector stores semantic knowledge, and RabbitMQ coordinates work. Electron and React complete the solution with a desktop control center for following the whole workflow."
       },
     },
   },

@@ -42,7 +42,7 @@
     "lucide-react": "^0.475.0",
     "mongodb": "^6.18.0",
     "mongoose": "^8.16.5",
-    "next": "15.2.3",
+    "next": "15.5.21",
     "patch-package": "^8.0.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
@@ -55,6 +55,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

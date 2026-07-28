@@ -18,7 +18,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const { t } = useLanguage();
   const projectTitle = t(`siteData.projects.${project.id}.title`);
-  const projectDescription = t(`siteData.projects.${project.id}.description`);
+  const projectDescription = t(`siteData.projects.${project.id}.shortDescription`);
 
   return (
     <BlurFade delay={index * 0.15} viewportAmount={0.1}>
