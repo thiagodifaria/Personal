@@ -1,39 +1,62 @@
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
-import type { Metadata } from "next";
-import { Toaster } from "@/components/ui/toaster";
-import { HeaderThemeProvider } from "@/context/HeaderThemeContext";
-import Header from "@/components/header/Header";
-import { constructMetadata } from "@/lib/metadata";
-import "./globals.css";
-import { LanguageProvider } from "@/context/LanguageContext";
+"use client";
 
-export function generateMetadata(): Metadata {
-  return constructMetadata();
-}
+import { useState } from "react";
+import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { Preloader } from "@/components/layout/Preloader";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { MobileDrawer } from "@/components/layout/MobileDrawer";
+import { CommandPalette } from "@/components/layout/CommandPalette";
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <html lang="pt" suppressHydrationWarning>
+    <html lang="pt-BR" data-theme="light">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,viewport-fit=cover"
+        />
+        <meta
+          name="description"
+          content="Portfólio de Thiago Di Faria — backend, dados, automação e sistemas de operação."
+        />
+        <meta name="theme-color" content="#f5f4f0" />
+        <title>Thiago Di Faria</title>
       </head>
-      <body className="font-body antialiased">
-        <GoogleAnalytics />
-        <LanguageProvider>
-          <HeaderThemeProvider>
-            <Header />
-            <Toaster />
-            {children}
-          </HeaderThemeProvider>
-        </LanguageProvider>
+      <body>
+        <ThemeProvider>
+          <LanguageProvider>
+            <a className="skip-link" href="#main-content">
+              Pular para o conteúdo
+            </a>
+
+            <Preloader />
+
+            <Header onOpenMenu={() => setMenuOpen(true)} />
+
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
+
+            <Footer />
+
+            <MobileDrawer
+              isOpen={menuOpen}
+              onClose={() => setMenuOpen(false)}
+            />
+
+            <CommandPalette />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

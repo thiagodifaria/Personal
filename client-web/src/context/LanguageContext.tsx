@@ -1,77 +1,67 @@
+"use client";
 
-'use client';
-import type { Dispatch, SetStateAction, ReactNode } from 'react';
-import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react';
-import ptTranslations from '@/locales/pt';
-import enTranslations from '@/locales/en';
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { i18n, Translations } from "@/config/i18n";
 
-export type Language = 'pt' | 'en';
-export type Translations = typeof ptTranslations | typeof enTranslations;
+type Language = "pt" | "en";
 
 interface LanguageContextType {
-  language: Language;
-  setLanguage: Dispatch<SetStateAction<Language>>;
-  translations: Translations;
-  t: (path: string, G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION?: boolean) => string | any;
+  lang: Language;
+  setLang: (lang: Language) => void;
+  t: Translations;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const getNestedValue = (obj: any, path: string, G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION: boolean = false): string | any => {
-  const value = path.split('.').reduce((acc, part) => acc && acc[part], obj);
-  
-  if (G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION && Array.isArray(value)) {
-    return value;
-  }
-  return typeof value === 'string' ? value : path; 
-};
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('pt'); 
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [lang, setLangState] = useState<Language>("pt");
 
   useEffect(() => {
-    
-    if (typeof window !== 'undefined') {
-      const storedLang = localStorage.getItem('appLanguage') as Language | null;
-      if (storedLang && (storedLang === 'pt' || storedLang === 'en')) {
-        setLanguage(storedLang);
-        document.documentElement.lang = storedLang;
-      } else {
-        document.documentElement.lang = 'pt'; 
+    try {
+      const storedLang = localStorage.getItem("tf-lang") as Language | null;
+      if (storedLang && (storedLang === "pt" || storedLang === "en")) {
+        setLangState(storedLang);
+        return;
       }
+
+      // Auto-detect based on browser language & location timezone
+      const browserLang = (navigator.language || (navigator as any).userLanguage || "").toLowerCase();
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+
+      if (
+        browserLang.startsWith("pt") ||
+        timeZone.includes("Sao_Paulo") ||
+        timeZone.includes("Bahia") ||
+        timeZone.includes("Fortaleza") ||
+        timeZone.includes("Recife") ||
+        timeZone.includes("Manaus") ||
+        timeZone.includes("Lisbon")
+      ) {
+        setLangState("pt");
+      } else {
+        setLangState("en");
+      }
+    } catch {
+      setLangState("pt");
     }
   }, []);
 
-  useEffect(() => {
-    
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('appLanguage', language);
-      document.documentElement.lang = language; 
-    }
-  }, [language]);
+  const setLang = (newLang: Language) => {
+    setLangState(newLang);
+    localStorage.setItem("tf-lang", newLang);
+  };
 
-  const currentTranslations = useMemo(() => {
-    return language === 'en' ? enTranslations : ptTranslations;
-  }, [language]);
-
-  const t = useCallback((path: string, G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION: boolean = false): string | any => {
-    return getNestedValue(currentTranslations, path, G_RAW_RETURN_TYPE_NEVER_USE_IN_PRODUCTION);
-  }, [currentTranslations]);
-
-  const contextValue = useMemo(() => ({
-    language,
-    setLanguage,
-    translations: currentTranslations,
-    t
-  }), [language, setLanguage, currentTranslations, t]);
-
-  return (<LanguageContext.Provider value={contextValue}>{children}</LanguageContext.Provider>);
+  return (
+    <LanguageContext.Provider value={{ lang, setLang, t: i18n[lang] }}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
 
 export function useLanguage() {
   const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 }

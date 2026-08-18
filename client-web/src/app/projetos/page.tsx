@@ -1,39 +1,114 @@
-
 "use client";
 
-import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { SectionThemeUpdater } from "@/components/SectionThemeUpdater";
-import { siteData } from "@/config/siteData";
-import { useLanguage } from "@/context/LanguageContext";
+import { useState } from "react";
+import Link from "next/link";
+import { siteContent } from "@/config/siteContent";
+import { useReveals } from "@/hooks/useReveals";
+import { Icon } from "@/components/ui/Icons";
 
-export default function ProjetosPage() {
-  const pathname = usePathname();
-  const { t } = useLanguage();
+export default function ProjectsPage() {
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("Todos");
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  useReveals([search, filter]);
+
+  const filters = [
+    "Todos",
+    "Sistemas empresariais",
+    "Backend e APIs",
+    "Dados e IA",
+    "Front end",
+    "Ferramentas de terminal",
+  ];
+
+  const q = search.toLowerCase().trim();
+  const list = siteContent.projects.filter(
+    (p) =>
+      (filter === "Todos" || p.filters.includes(filter)) &&
+      (!q ||
+        [p.name, p.category, p.problem, p.summary, ...p.tech]
+          .join(" ")
+          .toLowerCase()
+          .includes(q))
+  );
 
   return (
-    <SectionThemeUpdater
-      key={pathname}
-      theme="light"
-      as="main"
-      className="flex flex-col min-h-screen bg-background"
-    >
-      <div className="container mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex-grow">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">
-            {t('projectsPage.title')}
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('projectsPage.description')}
+    <>
+      <section className="page-hero">
+        <div className="shell page-hero-grid">
+          <div>
+            <span className="eyebrow">Acervo de projetos</span>
+            <h1>Projetos que colocam o pensamento à prova.</h1>
+          </div>
+          <p>
+            Meus projetos pessoais são onde testo ideias a fundo. Não são
+            exercícios isolados: cada um nasce de um problema claro e é tratado
+            com arquitetura, documentação e uma experiência de uso coerente.
           </p>
         </div>
-        <ProjectsSection projects={siteData.projectsDataStructure} showFilters />
-      </div>
-    </SectionThemeUpdater>
+      </section>
+
+      <section className="section">
+        <div className="shell">
+          <label className="sr-only" htmlFor="projectSearch">
+            Buscar projetos
+          </label>
+          <input
+            className="search-input"
+            id="projectSearch"
+            type="search"
+            placeholder="Buscar por nome, problema ou tecnologia"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <div className="filterbar" id="projectFilters">
+            {filters.map((f) => (
+              <button
+                key={f}
+                className={filter === f ? "active" : ""}
+                onClick={() => setFilter(f)}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+
+          <div className="projects-index" id="projectsIndex">
+            {list.length === 0 ? (
+              <div style={{ padding: "70px 0", textAlign: "center" }}>
+                <h2>Nenhum projeto encontrou esse caminho.</h2>
+                <p style={{ color: "var(--muted)" }}>
+                  Tente outro termo ou volte para “Todos”.
+                </p>
+              </div>
+            ) : (
+              list.map((p) => (
+                <article key={p.slug} className="project-row reveal">
+                  <span className="mono">{p.n}</span>
+                  <h2>
+                    <Link href={`/projetos/${p.slug}`}>{p.name}</Link>
+                  </h2>
+                  <p>
+                    {p.problem}
+                    <br />
+                    <span className="mono">
+                      {p.category} · {p.tech.slice(0, 3).join(" · ")}
+                    </span>
+                  </p>
+                  <Link
+                    className="arrow"
+                    href={`/projetos/${p.slug}`}
+                    aria-label={`Ver detalhes de ${p.name}`}
+                  >
+                    <Icon name="arrow" />
+                  </Link>
+                </article>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
